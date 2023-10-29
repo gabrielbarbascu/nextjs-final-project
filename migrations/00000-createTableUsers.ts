@@ -2,6 +2,7 @@ import { Sql } from 'postgres';
 
 export type User = {
   id: number;
+  username: string;
   email: string;
   passwordHash: string;
   firstName: string;
@@ -18,8 +19,9 @@ export async function up(sql: Sql) {
   await sql`
     CREATE TABLE users (
     id integer PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    username varchar(80) NOT NULL UNIQUE,
     email VARCHAR(50),
-    password_hash VARCHAR(80),
+    password_hash VARCHAR(80) NOT NULL,
     first_name VARCHAR(50),
     last_name VARCHAR(50),
     date_of_birth DATE,
@@ -27,7 +29,7 @@ export async function up(sql: Sql) {
     phone_number VARCHAR(50),
     service VARCHAR(50),
     is_admin BOOLEAN,
-    profile_image VARCHAR(120)
+    profile_image VARCHAR(120),
     );
   `;
 }

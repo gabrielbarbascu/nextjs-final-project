@@ -1,7 +1,9 @@
-import type { Metadata } from 'next';
+import './globals.scss';
+import { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import Link from 'next/link';
 import { ReactNode } from 'react';
+import LogoutButton from './(auth)/logout/LogoutButton';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -24,7 +26,12 @@ export default function RootLayout(props: Props) {
             <Link href="/">HOME</Link>
             <Link href="/services">SERVICES</Link>
             <Link href="/about">ABOUT</Link>
-            <Link href="/account">SIGN UP/LOG IN</Link>
+          </div>
+
+          <div>
+            <Link href="/register">Register</Link>
+            <Link href="/login">Login</Link>
+            <LogoutButton />
           </div>
         </nav>
 
