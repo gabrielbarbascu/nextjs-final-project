@@ -24,12 +24,12 @@ export async function up(sql: Sql) {
     password_hash VARCHAR(80) NOT NULL,
     first_name VARCHAR(50),
     last_name VARCHAR(50),
-    date_of_birth DATE,
+    date_of_birth VARCHAR(20),
     gender VARCHAR(1),
     phone_number VARCHAR(50),
     service VARCHAR(50),
     is_admin BOOLEAN,
-    profile_image VARCHAR(120),
+    profile_image VARCHAR(120)
     );
   `;
 }

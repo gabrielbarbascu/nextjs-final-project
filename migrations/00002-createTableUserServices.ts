@@ -11,7 +11,7 @@ export async function up(sql: Sql) {
     id integer PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
 
     user_id integer NOT NULL REFERENCES users (id) ON DELETE CASCADE,
-    service_id integer NOT NULL REFERENCES users (id) ON DELETE CASCADE
+    service_id integer NOT NULL REFERENCES services (id) ON DELETE CASCADE
 
 
     );

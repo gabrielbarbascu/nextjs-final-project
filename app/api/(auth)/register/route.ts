@@ -9,8 +9,15 @@ import { User } from '../../../../migrations/00000-createTableUsers';
 import { secureCookieOptions } from '../../../../util/cookies';
 
 const registerSchema = z.object({
-  username: z.string().min(3),
-  password: z.string().min(3),
+  username: z.string().min(1),
+  password: z.string().min(1),
+  email: z.string().min(1),
+  firstName: z.string().min(1),
+  lastName: z.string().min(1),
+  dateOfBirth: z.string().min(1),
+  gender: z.string().min(1),
+  phoneNumber: z.string().min(1),
+  profileImage: z.string().min(1),
 });
 
 export type RegisterResponseBodyPost =
@@ -28,7 +35,7 @@ export async function POST(
 
   // 1. Get the user data from the request
   const body = await request.json();
-
+  console.log(body);
   // 2. Validate the user data
   const result = registerSchema.safeParse(body);
 
@@ -57,7 +64,18 @@ export async function POST(
   const passwordHash = await bcrypt.hash(result.data.password, 12);
 
   // 5. Save the user information with the hashed password in the database
-  const newUser = await createUser(result.data.username, passwordHash);
+  const newUser = await createUser(
+    result.data.username,
+    passwordHash,
+    result.data.email,
+    result.data.firstName,
+    result.data.lastName,
+    result.data.dateOfBirth,
+    result.data.gender,
+    result.data.phoneNumber,
+    false,
+    result.data.profileImage,
+  );
 
   if (!newUser) {
     return NextResponse.json(

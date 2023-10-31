@@ -6,8 +6,6 @@ export type Service = {
   description: string;
   price: string;
   duration: string;
-  userId: number;
-  isPaid: boolean;
 };
 
 export async function up(sql: Sql) {
@@ -17,10 +15,7 @@ export async function up(sql: Sql) {
     name VARCHAR(30) ,
     description VARCHAR(200),
     price VARCHAR(15),
-    duration VARCHAR(30),
-    user_id integer NOT NULL REFERENCES users (id) ON DELETE CASCADE,
-    is_paid BOOLEAN
-
+    duration VARCHAR(30)
 
     );
   `;

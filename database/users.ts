@@ -1,3 +1,4 @@
+import 'server-only';
 import { cache } from 'react';
 import { User } from '../migrations/00000-createTableUsers';
 import { sql } from './connect';
@@ -6,45 +7,62 @@ export type UserWithPasswordHash = User & {
   passwordHash: string;
 };
 
-export type UserNote = {
-  noteId: number;
-  textContent: string;
-  username: string;
-};
-
 export const createUser = cache(
   async (
-    id: number,
     username: string,
-    email: string,
     passwordHash: string,
+    email: string,
     firstName: string,
     lastName: string,
     dateOfBirth: string,
     gender: string,
     phoneNumber: string,
-    service: string,
     isAdmin: boolean,
     profileImage: string,
   ) => {
     const [user] = await sql<User[]>`
       INSERT INTO users
-      (id, username, email, password_hash, first_name, last_name,gender, phone_number, service, is_admin, profile_image)
+      ( username, email, password_hash, first_name, last_name, date_of_birth, gender, phone_number,  is_admin, profile_image)
       Values
-      (${id}, $(username) ${passwordHash}, $(email) $(firstName), $(lastName), $(dateOfBirth), $(gender), $(phoneNumber), $(service), $(isAdmin), $(profileImage))
+      ( ${username} ,${email}, ${passwordHash}, ${firstName}, ${lastName}, ${dateOfBirth}, ${gender}, ${phoneNumber} ,${isAdmin}, ${profileImage} )
       RETURNING
-      id, username, email, password_hash, first_name, last_name,gender, phone_number, service, is_admin, profile_image
+      id,username, email, password_hash, first_name, last_name, date_of_birth, gender, phone_number, is_admin, profile_image
 
     `;
     return user;
   },
 );
 
+export const getUsers = cache(async () => {
+  // return animals;
+  const users = await sql<User[]>`
+    SELECT * FROM users
+  `;
+  return users;
+});
+
+{
+  /*export const createUser = cache(
+  async (username: string, passwordHash: string) => {
+    const [user] = await sql<User[]>`
+      INSERT INTO users
+        (username, password_hash)
+      VALUES
+        (${username.toLowerCase()}, ${passwordHash})
+      RETURNING
+        id,
+        username
+    `;
+    return user;
+  },
+); */
+}
+
 export const getUserByUsername = cache(async (username: string) => {
   const [user] = await sql<User[]>`
     SELECT
       id,
-      username
+      username,date_of_birth,gender,first_name,last_name,profile_image,email,phone_number
     FROM
       users
     WHERE
@@ -84,22 +102,58 @@ export const getUserBySessionToken = cache(async (token: string) => {
   return user;
 });
 
-export const getUserNoteBySessionToken = cache(async (token: string) => {
-  const notes = await sql<UserNote[]>`
-   SELECT
-      notes.id AS note_id,
-      notes.text_content AS text_content,
-      users.username AS username
+export const getUsersWithLimitAndOffset = cache(
+  async (limit: number, offset: number) => {
+    // return animals;
+    const users = await sql<User[]>`
+    SELECT
+      *
     FROM
-      notes
-    INNER JOIN
-      users ON notes.user_id = users.id
-    INNER JOIN
-      sessions ON (
-        sessions.token = ${token} AND
-        sessions.user_id = users.id AND
-        sessions.expiry_timestamp > now()
-      )
+      users
+    Limit ${limit}
+    OFFSET ${offset}
   `;
-  return notes;
+    return users;
+  },
+);
+
+export const getUserById = cache(async (id: number) => {
+  // Postgres always returns an array
+  const [user] = await sql<User[]>`
+    SELECT
+      *
+    FROM
+      users
+    WHERE
+      id = ${id}
+  `;
+  return user;
 });
+
+export const deleteUserById = cache(async (id: number) => {
+  const [user] = await sql<User[]>`
+    DELETE FROM
+      users
+    WHERE
+      id = ${id}
+    RETURNING *
+  `;
+
+  return user;
+});
+
+export const updateUserById = cache(
+  async (id: number, firstName: string, lastName: string, email: string) => {
+    const [user] = await sql<User[]>`
+      UPDATE
+        users
+      SET
+        first_name = ${firstName},
+        last_name = ${lastName},
+        email = ${email}
+      WHERE id = ${id}
+      RETURNING *
+    `;
+    return user;
+  },
+);

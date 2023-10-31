@@ -8,6 +8,14 @@ export default function RegisterForm() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState<{ message: string }[]>([]);
+  const [email, setEmail] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [dateOfBirth, setDateOfBirth] = useState('');
+  const [gender, setGender] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [profileImage, setProfileImage] = useState('');
+
   const router = useRouter();
 
   async function handleRegister(event: React.FormEvent<HTMLFormElement>) {
@@ -18,6 +26,13 @@ export default function RegisterForm() {
       body: JSON.stringify({
         username,
         password,
+        email,
+        firstName,
+        lastName,
+        dateOfBirth,
+        gender,
+        phoneNumber,
+        profileImage,
       }),
     });
 
@@ -48,7 +63,59 @@ export default function RegisterForm() {
           onChange={(event) => setPassword(event.currentTarget.value)}
         />
       </label>
-      <button>Register</button>
+      <label>
+        Email
+        <input
+          type="email"
+          onChange={(event) => setEmail(event.currentTarget.value)}
+        />
+      </label>
+      <label>
+        First name
+        <input
+          type="first name"
+          onChange={(event) => setFirstName(event.currentTarget.value)}
+        />
+      </label>
+
+      <label>
+        Last name
+        <input
+          type="last name"
+          onChange={(event) => setLastName(event.currentTarget.value)}
+        />
+      </label>
+
+      <label>
+        Date of birth
+        <input
+          type="date of birth"
+          onChange={(event) => setDateOfBirth(event.currentTarget.value)}
+        />
+      </label>
+      <label>
+        Gender
+        <input
+          type="gender"
+          onChange={(event) => setGender(event.currentTarget.value)}
+        />
+      </label>
+      <label>
+        Phone number
+        <input
+          type="phone number"
+          onChange={(event) => setPhoneNumber(event.currentTarget.value)}
+        />
+      </label>
+      <label>
+        Profile image
+        <input
+          type="profile image"
+          onChange={(event) => setProfileImage(event.currentTarget.value)}
+        />
+      </label>
+
+      <button>Create account</button>
 
       {errors.map((error) => (
         <div className="error" key={`error-${error.message}`}>

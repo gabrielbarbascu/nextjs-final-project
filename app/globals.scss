@@ -4,17 +4,17 @@
 }
 
 body {
-  background: teal;
+  background: rgb(31, 30, 30); // Set the background color to black
+  color: white; // Set the text color to white
 }
 
 nav {
   width: 100vw;
   height: 4rem;
-  background: tan;
+  background: rgb(110, 179, 87); // Set the background color to green
   display: flex;
   justify-content: space-around;
   align-items: center;
-
   > div {
     display: flex;
     align-items: center;

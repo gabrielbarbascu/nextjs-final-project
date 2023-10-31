@@ -8,8 +8,8 @@ import { getUserWithPasswordHashByUsername } from '../../../../database/users';
 import { secureCookieOptions } from '../../../../util/cookies';
 
 const loginSchema = z.object({
-  username: z.string().min(3),
-  password: z.string().min(3),
+  username: z.string().min(1),
+  password: z.string().min(1),
 });
 
 export type LoginResponseBodyPost =
