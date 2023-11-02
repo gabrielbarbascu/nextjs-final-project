@@ -14,7 +14,7 @@ export default function ServiceButton(props) {
   }
   return (
     <button onClick={() => handleService(props.userId, props.serviceId)}>
-      test
+      BUY
     </button>
   );
 }

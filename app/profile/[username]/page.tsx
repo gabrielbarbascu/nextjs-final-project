@@ -1,5 +1,6 @@
 import './page.css';
 import { cookies } from 'next/headers';
+import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import React from 'react';
 import { getUserServices } from '../../../database/services';
@@ -42,6 +43,9 @@ export default async function UserProfilePage({ params }: Props) {
         <p>
           <strong>Gender:</strong> {singleUser.gender}
         </p>
+        <p>
+          <strong>Profile image:</strong> {singleUser.profileImage}
+        </p>
       </section>
 
       <section className="profile-section">
@@ -52,6 +56,12 @@ export default async function UserProfilePage({ params }: Props) {
         <p>
           <strong>Phone Number:</strong> {singleUser.phoneNumber}
         </p>
+      </section>
+      <section className="service-chosen">
+        You have no active service. Get in shape
+        <button>
+          <Link href="/services"> NOW</Link>
+        </button>
       </section>
     </div>
   );

@@ -18,7 +18,9 @@ const Home = () => {
           lose weight or build muscle, or simply want to have a healthy
           lifestyle, I am ready to offer you my knowledge.
         </p>
-        <button style={{ marginRight: '10px' }}>Join Now</button>
+        <a href="/login">
+          <button style={{ marginRight: '10px' }}>Join Now</button>
+        </a>
         <button>Get in Touch</button>
       </div>
       <div style={{ width: '50%', position: 'relative' }}>

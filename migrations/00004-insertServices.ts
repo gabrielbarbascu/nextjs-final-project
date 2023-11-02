@@ -6,21 +6,21 @@ const services = [
     name: 'Fitness',
     description: 'Description of Service 1',
     duration: '1 Month',
-    price: 180,
+    price: 1,
   },
   {
     id: 2,
     name: 'Fitness + Nutrition',
     description: 'Description of Service 2',
     duration: '1 Month',
-    price: 230,
+    price: 2,
   },
   {
     id: 3,
     name: 'PREMIUM',
     description: 'Description of Service 3',
     duration: '1 Month',
-    price: 300,
+    price: 3,
   },
 ];
 
