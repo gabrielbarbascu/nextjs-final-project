@@ -1,5 +1,5 @@
 export const metadata = {
-  title: { default: 'About| Pna Academy', template: '%s | Pna Academy' },
+  title: { default: 'About', template: '%s' },
   description: 'Description about the personal trainer and contact information',
 };
 export default function AboutPage() {

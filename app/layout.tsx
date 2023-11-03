@@ -10,7 +10,7 @@ import CookieBanner from './CookieBanner';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-  title: { default: 'Home page | Pna Academy', template: '%s | Pna Academy' },
+  title: { default: 'Home page | PNA Academy', template: '%s | PNA Academy' },
   description:
     'Home page describing why you should join the academy and giving options towards it ',
 };

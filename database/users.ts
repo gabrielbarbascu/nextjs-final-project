@@ -23,10 +23,10 @@ export const createUser = cache(
     const [user] = await sql<User[]>`
       INSERT INTO users
       ( username, email, password_hash, first_name, last_name, date_of_birth, gender, phone_number,  is_admin, profile_image)
-      Values
+      VALUES
       ( ${username} ,${email}, ${passwordHash}, ${firstName}, ${lastName}, ${dateOfBirth}, ${gender}, ${phoneNumber} ,${isAdmin}, ${profileImage} )
       RETURNING
-      id,username, email, password_hash, first_name, last_name, date_of_birth, gender, phone_number, is_admin, profile_image
+      id, username, email, password_hash, first_name, last_name, date_of_birth, gender, phone_number, is_admin, profile_image
 
     `;
     return user;
@@ -143,14 +143,24 @@ export const deleteUserById = cache(async (id: number) => {
 });
 
 export const updateUserById = cache(
-  async (id: number, firstName: string, lastName: string, email: string) => {
+  async (
+    id: number,
+    firstName: string,
+    lastName: string,
+    email: string,
+    phoneNumber: string,
+    service: string,
+  ) => {
     const [user] = await sql<User[]>`
       UPDATE
         users
       SET
         first_name = ${firstName},
         last_name = ${lastName},
-        email = ${email}
+        email = ${email},
+        phone_number = ${phoneNumber},
+        service = ${service || null}
+
       WHERE id = ${id}
       RETURNING *
     `;

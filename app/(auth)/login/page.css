@@ -10,9 +10,8 @@ form {
 }
 
 label {
-  display: block;
-  margin-bottom: 10px;
   font-weight: bold;
+  margin: 10px 0;
 }
 
 input {
@@ -49,7 +48,7 @@ a:hover {
 }
 
 .error {
-  color: #ff0000;
+  color: #2f00ff;
   margin-top: 10px;
   font-weight: bold;
 }

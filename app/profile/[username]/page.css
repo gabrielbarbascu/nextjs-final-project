@@ -1,4 +1,5 @@
 .profile-container {
+  position: relative; /* Add this to establish positioning context */
   padding: 20px;
   border: 1px solid #ccc;
 }
@@ -20,8 +21,15 @@
 p {
   margin: 5px 0;
 }
+
 .service-chosen {
   position: absolute;
-  top: 5;
-  right: 5;
+  top: 5px; /* Add "px" for units */
+  right: 5px; /* Add "px" for units */
+}
+
+.active-service {
+  position: absolute;
+  top: 30px; /* Add "px" for units */
+  right: 30px; /* Add "px" for units */
 }

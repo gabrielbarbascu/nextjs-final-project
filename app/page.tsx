@@ -19,7 +19,7 @@ const Home = () => {
           lifestyle, I am ready to offer you my knowledge.
         </p>
         <a href="/login">
-          <button style={{ marginRight: '10px' }}>Join Now</button>
+          <button style={{ marginRight: '10px' }}>JOIN NOW</button>
         </a>
         <button>Get in Touch</button>
       </div>

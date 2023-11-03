@@ -63,6 +63,10 @@ export default async function UserProfilePage({ params }: Props) {
           <Link href="/services"> NOW</Link>
         </button>
       </section>
+      <section className="active-service">
+        REACH GREATNESS
+        <button>Download</button>
+      </section>
     </div>
   );
 }

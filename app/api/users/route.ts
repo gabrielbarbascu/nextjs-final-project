@@ -23,10 +23,12 @@ type UsersResponseBodyPost =
   | Error;
 
 const userSchema = z.object({
-  username: z.string(1),
-  password: z.string(1),
+  firstName: z.string(),
+  lastName: z.string(),
+  email: z.string(),
+  phoneNumber: z.string(),
+  service: z.string(),
 });
-
 export async function GET(
   request: NextRequest,
 ): Promise<NextResponse<UsersResponseBodyGet>> {
@@ -71,19 +73,13 @@ export async function POST(
   }
 
   // Get the animals from the database
-  {
-    /*const user = await createUser(
-    result.data.username,
-    result.data.password,
-    result.data.email,
+  const user = await createUser(
     result.data.firstName,
     result.data.lastName,
-    result.data.dateOfBirth,
-    result.data.gender,
+    result.data.email,
     result.data.phoneNumber,
-    result.data.profileImage,
-  ); */
-  }
+    result.data.service,
+  );
 
   if (!user) {
     return NextResponse.json(

@@ -107,13 +107,13 @@ export default function RegisterForm() {
           onChange={(event) => setPhoneNumber(event.currentTarget.value)}
         />
       </label>
-      {/*<label>
+      <label>
         Profile image
         <input
           type="profile image"
           onChange={(event) => setProfileImage(event.currentTarget.value)}
         />
-  </label> */}
+      </label>
 
       <button>Create account</button>
 
