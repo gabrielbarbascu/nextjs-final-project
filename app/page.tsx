@@ -21,7 +21,9 @@ const Home = () => {
         <a href="/login">
           <button style={{ marginRight: '10px' }}>JOIN NOW</button>
         </a>
-        <button>Get in Touch</button>
+        <a href="/about">
+          <button>Get in Touch</button>
+        </a>
       </div>
       <div style={{ width: '50%', position: 'relative' }}>
         <Image

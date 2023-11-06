@@ -11,6 +11,17 @@ type Props = {
 
 export default function Services(props: Props) {
   const router = useRouter();
+  async function handleService(userId, serviceId) {
+    const response = await fetch('/api/services', {
+      method: 'POST',
+      body: JSON.stringify({
+        userId,
+        serviceId,
+      }),
+    });
+
+    const data: ServiceResponseBodyPost = await response.json();
+  }
 
   async function createSession(priceId: string) {
     const response = await fetch('/api/sessions', {
@@ -34,9 +45,10 @@ export default function Services(props: Props) {
         <h2>{props.fitness.name}</h2>
         <h2>{props.fitness.description}</h2>
         <button
-          onClick={() =>
-            createSession((props.fitness.default_price as Stripe.Price).id)
-          }
+          onClick={() => {
+            handleService(props.userId, props.serviceId),
+              createSession((props.fitness.default_price as Stripe.Price).id);
+          }}
         >
           buy for €{' '}
           {(props.fitness.default_price as Stripe.Price).unit_amount! / 100}
@@ -44,11 +56,14 @@ export default function Services(props: Props) {
       </div>
       <div>
         <br />
+        <h2>{props.fitnessn.name}</h2>
+        <h2>{props.fitnessn.description}</h2>
 
         <button
-          onClick={() =>
-            createSession((props.fitnessn.default_price as Stripe.Price).id)
-          }
+          onClick={() => {
+            handleService(props.userId, props.serviceId),
+              createSession((props.fitnessn.default_price as Stripe.Price).id);
+          }}
         >
           buy for €{' '}
           {(props.fitnessn.default_price as Stripe.Price).unit_amount! / 100}
@@ -56,10 +71,12 @@ export default function Services(props: Props) {
       </div>
       <div>
         <h2>{props.fitnessp.name}</h2>
+        <h2>{props.fitnessp.description}</h2>
         <button
-          onClick={() =>
-            createSession((props.fitnessp.default_price as Stripe.Price).id)
-          }
+          onClick={() => {
+            handleService(props.userId, props.serviceId),
+              createSession((props.fitnessp.default_price as Stripe.Price).id);
+          }}
         >
           buy for €{' '}
           {(props.fitnessp.default_price as Stripe.Price).unit_amount! / 100}

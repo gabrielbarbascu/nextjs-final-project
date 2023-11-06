@@ -2,7 +2,7 @@ import { cookies } from 'next/headers';
 import { getServices } from '../../database/services';
 import { getUserBySessionToken } from '../../database/users';
 import { stripeClient } from '../../util/stripe';
-import ServiceButton from './ServiceButton';
+//import ServiceButton from './ServiceButton';
 import Services from './Services';
 
 export const metadata = {
@@ -48,10 +48,10 @@ export default async function ServicesPage() {
       <h1>YOU CHOOSE HOW YOU WANT TO REACH YOUR GREATNESS.</h1>
       {services.map((service) => (
         <div key={`service-div-${service.id}`}>
-          <h2>{service.name}</h2>
+          {/*<h2>{service.name}</h2>
           <p>{service.description}</p>
           <p>{service.duration}</p>
-          <p>{service.price}$</p>
+      <p>{service.price}$</p> */}
 
           {/*  {user ? (
             <ServiceButton userId={user.id} serviceId={service.id} />
