@@ -21,7 +21,7 @@ export async function POST(
 
   // Check if the inputs are valid
   const result = sessionSchema.safeParse(body);
-
+  console.log(result);
   // return an error if is not valid
   if (!result.success) {
     return NextResponse.json(

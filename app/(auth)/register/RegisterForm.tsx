@@ -14,7 +14,6 @@ export default function RegisterForm() {
   const [dateOfBirth, setDateOfBirth] = useState('');
   const [gender, setGender] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
-  const [profileImage, setProfileImage] = useState('');
 
   const router = useRouter();
 
@@ -32,7 +31,6 @@ export default function RegisterForm() {
         dateOfBirth,
         gender,
         phoneNumber,
-        profileImage,
       }),
     });
 
@@ -105,13 +103,6 @@ export default function RegisterForm() {
         <input
           type="phone number"
           onChange={(event) => setPhoneNumber(event.currentTarget.value)}
-        />
-      </label>
-      <label>
-        Profile image
-        <input
-          type="profile image"
-          onChange={(event) => setProfileImage(event.currentTarget.value)}
         />
       </label>
 

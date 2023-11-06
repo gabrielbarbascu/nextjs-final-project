@@ -18,15 +18,14 @@ export const createUser = cache(
     gender: string,
     phoneNumber: string,
     isAdmin: boolean,
-    profileImage: string,
   ) => {
     const [user] = await sql<User[]>`
       INSERT INTO users
-      ( username, email, password_hash, first_name, last_name, date_of_birth, gender, phone_number,  is_admin, profile_image)
+      ( username, email, password_hash, first_name, last_name, date_of_birth, gender, phone_number,  is_admin)
       VALUES
-      ( ${username} ,${email}, ${passwordHash}, ${firstName}, ${lastName}, ${dateOfBirth}, ${gender}, ${phoneNumber} ,${isAdmin}, ${profileImage} )
+      ( ${username} ,${email}, ${passwordHash}, ${firstName}, ${lastName}, ${dateOfBirth}, ${gender}, ${phoneNumber} ,${isAdmin} )
       RETURNING
-      id, username, email, password_hash, first_name, last_name, date_of_birth, gender, phone_number, is_admin, profile_image
+      id, username, email, password_hash, first_name, last_name, date_of_birth, gender, phone_number, is_admin
 
     `;
     return user;
@@ -62,7 +61,7 @@ export const getUserByUsername = cache(async (username: string) => {
   const [user] = await sql<User[]>`
     SELECT
       id,
-      username,date_of_birth,gender,first_name,last_name,profile_image,email,phone_number
+      username,date_of_birth,gender,first_name,last_name,email,phone_number
     FROM
       users
     WHERE

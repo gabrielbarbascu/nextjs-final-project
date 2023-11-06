@@ -19,6 +19,7 @@ export default async function UserProfilePage({ params }: Props) {
   const session =
     sessionTokenCookie &&
     (await getValidSessionByToken(sessionTokenCookie.value));
+  const uploadedFiles = [{ filename: 'file1.pdf' }, { filename: 'file2.pdf' }];
 
   //  Query your database to check if this user is admin
 
@@ -43,9 +44,6 @@ export default async function UserProfilePage({ params }: Props) {
         <p>
           <strong>Gender:</strong> {singleUser.gender}
         </p>
-        <p>
-          <strong>Profile image:</strong> {singleUser.profileImage}
-        </p>
       </section>
 
       <section className="profile-section">
@@ -63,10 +61,21 @@ export default async function UserProfilePage({ params }: Props) {
           <Link href="/services"> NOW</Link>
         </button>
       </section>
-      <section className="active-service">
-        REACH GREATNESS
-        <button>Download</button>
-      </section>
+      <section className="active-service">REACH GREATNESS</section>
+
+      <ul>
+        {uploadedFiles.map((file) => (
+          <li key={file.filename}>
+            {file.filename}
+            <a
+              href={`/api/download/${file.filename}`} // Download route
+              download // Optional attribute to prompt the browser for download
+            >
+              <button>Download</button>
+            </a>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

@@ -11,19 +11,18 @@ type Props = {
 
 export default function Services(props: Props) {
   const router = useRouter();
-  const [quantity, setQuantity] = useState(1);
 
-  async function createSession(priceId: string, productQuantity?: number) {
+  async function createSession(priceId: string) {
     const response = await fetch('/api/sessions', {
       method: 'POST',
       body: JSON.stringify({
         price: priceId,
-        quantity: productQuantity,
+        quantity: 1,
       }),
     });
 
     const data = await response.json();
-
+    console.log(data);
     // we should check for errors
 
     router.push(data.session.url);
@@ -33,6 +32,7 @@ export default function Services(props: Props) {
     <>
       <div>
         <h2>{props.fitness.name}</h2>
+        <h2>{props.fitness.description}</h2>
         <button
           onClick={() =>
             createSession((props.fitness.default_price as Stripe.Price).id)
@@ -43,26 +43,15 @@ export default function Services(props: Props) {
         </button>
       </div>
       <div>
-        <input
-          min={1}
-          type="number"
-          value={quantity.toString()}
-          onChange={(event) => setQuantity(Number(event.currentTarget.value))}
-        />
-
         <br />
+
         <button
           onClick={() =>
-            createSession(
-              (props.fitnessn.default_price as Stripe.Price).id,
-              quantity,
-            )
+            createSession((props.fitnessn.default_price as Stripe.Price).id)
           }
         >
           buy for €{' '}
-          {((props.fitnessn.default_price as Stripe.Price).unit_amount! *
-            quantity) /
-            100}
+          {(props.fitnessn.default_price as Stripe.Price).unit_amount! / 100}
         </button>
       </div>
       <div>
@@ -73,9 +62,7 @@ export default function Services(props: Props) {
           }
         >
           buy for €{' '}
-          {((props.fitnessp.default_price as Stripe.Price).unit_amount! *
-            quantity) /
-            100}
+          {(props.fitnessp.default_price as Stripe.Price).unit_amount! / 100}
         </button>
       </div>
     </>

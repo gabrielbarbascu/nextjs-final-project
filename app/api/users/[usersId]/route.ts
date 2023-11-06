@@ -69,7 +69,6 @@ export async function PUT(
 
   // zod please verify the body matches my schema
   const result = userSchema.safeParse(body);
-
   if (!result.success) {
     // zod send you details about the error
     // console.log(result.error);

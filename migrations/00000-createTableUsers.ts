@@ -12,7 +12,6 @@ export type User = {
   phoneNumber: string;
   service: string;
   isAdmin: boolean;
-  profileImage: string;
 };
 
 export async function up(sql: Sql) {
@@ -28,8 +27,7 @@ export async function up(sql: Sql) {
     gender VARCHAR(1),
     phone_number VARCHAR(50),
     service VARCHAR(50),
-    is_admin BOOLEAN,
-    profile_image VARCHAR(120)
+    is_admin BOOLEAN
     );
   `;
 }

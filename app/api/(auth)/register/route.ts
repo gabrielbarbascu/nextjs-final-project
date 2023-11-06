@@ -17,7 +17,6 @@ const registerSchema = z.object({
   dateOfBirth: z.string().min(1),
   gender: z.string().min(1),
   phoneNumber: z.string().min(1),
-  profileImage: z.string().min(1),
 });
 
 export type RegisterResponseBodyPost =
@@ -74,7 +73,6 @@ export async function POST(
     result.data.gender,
     result.data.phoneNumber,
     false,
-    result.data.profileImage,
   );
 
   if (!newUser) {

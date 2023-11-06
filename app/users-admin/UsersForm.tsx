@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { User } from '../../migrations/00000-createTableUsers';
+import FileUpload from '../components/FileUpload';
 
 type Props = {
   users: User[];
@@ -200,6 +201,7 @@ export default function UsersForm({ users }: Props) {
               <button onClick={async () => await deleteUserById(user.id)}>
                 Delete
               </button>
+              <FileUpload />
             </div>
           );
         })}
