@@ -18,7 +18,7 @@ export const createUserService = cache(
     const [service] = await sql<Service[]>`
       INSERT INTO user_services
       ( user_id, service_id)
-      Values
+      VALUES
       ( ${userId}, ${serviceId} )
       RETURNING
       user_id, service_id

@@ -1,9 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
-import {
-  createUser,
-  getUsersWithLimitAndOffset,
-} from '../../../database/users';
+import { getUsersWithLimitAndOffset } from '../../../database/users';
 import { User } from '../../../migrations/00000-createTableUsers';
 
 export type Error = {
@@ -16,19 +13,6 @@ type UsersResponseBodyGet =
     }
   | Error;
 
-type UsersResponseBodyPost =
-  | {
-      user: User;
-    }
-  | Error;
-
-const userSchema = z.object({
-  firstName: z.string(),
-  lastName: z.string(),
-  email: z.string(),
-  phoneNumber: z.string(),
-  service: z.string(),
-});
 export async function GET(
   request: NextRequest,
 ): Promise<NextResponse<UsersResponseBodyGet>> {
@@ -51,46 +35,5 @@ export async function GET(
 
   return NextResponse.json({
     users: users,
-  });
-}
-
-export async function POST(
-  request: NextRequest,
-): Promise<NextResponse<UsersResponseBodyPost>> {
-  const body = await request.json();
-
-  const result = userSchema.safeParse(body);
-
-  if (!result.success) {
-    // zod send you details about the error
-    // console.log(result.error);
-    return NextResponse.json(
-      {
-        error: 'The data is incomplete',
-      },
-      { status: 400 },
-    );
-  }
-
-  // Get the animals from the database
-  const user = await createUser(
-    result.data.firstName,
-    result.data.lastName,
-    result.data.email,
-    result.data.phoneNumber,
-    result.data.service,
-  );
-
-  if (!user) {
-    return NextResponse.json(
-      {
-        error: 'Error creating the new user',
-      },
-      { status: 500 },
-    );
-  }
-
-  return NextResponse.json({
-    user: user,
   });
 }

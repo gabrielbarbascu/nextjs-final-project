@@ -33,7 +33,7 @@ export default function Services(props: Props) {
     });
 
     const data = await response.json();
-    console.log(data);
+    //console.log(data);
     // we should check for errors
 
     router.push(data.session.url);

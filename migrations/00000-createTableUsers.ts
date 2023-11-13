@@ -17,7 +17,7 @@ export type User = {
 export async function up(sql: Sql) {
   await sql`
     CREATE TABLE users (
-    id integer PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     username varchar(80) NOT NULL UNIQUE,
     email VARCHAR(50),
     password_hash VARCHAR(80) NOT NULL,

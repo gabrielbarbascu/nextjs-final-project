@@ -25,7 +25,7 @@ export async function GET(
   { params }: { params: Record<string, string | string[]> },
 ): Promise<NextResponse<UserResponseBodyGet>> {
   console.log(params);
-  const userId = Number(params.userId);
+  const userId = Number(params.usersId);
 
   if (!userId) {
     return NextResponse.json(
@@ -54,7 +54,7 @@ export async function PUT(
   request: NextRequest,
   { params }: { params: Record<string, string | string[]> },
 ): Promise<NextResponse<UserResponseBodyPut>> {
-  const userId = Number(params.userId);
+  const userId = Number(params.usersId);
 
   if (!userId) {
     return NextResponse.json(
@@ -108,7 +108,7 @@ export async function DELETE(
   request: NextRequest,
   { params }: { params: Record<string, string | string[]> },
 ): Promise<NextResponse<UserResponseBodyDelete>> {
-  const userId = Number(params.userId);
+  const userId = Number(params.usersId);
 
   if (!userId) {
     return NextResponse.json(

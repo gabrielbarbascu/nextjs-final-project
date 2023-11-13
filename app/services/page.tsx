@@ -2,7 +2,6 @@ import { cookies } from 'next/headers';
 import { getServices } from '../../database/services';
 import { getUserBySessionToken } from '../../database/users';
 import { stripeClient } from '../../util/stripe';
-//import ServiceButton from './ServiceButton';
 import Services from './Services';
 
 export const metadata = {
@@ -36,11 +35,11 @@ export default async function ServicesPage() {
     },
   );
 
-  console.log('fitness', fitness);
-  console.log('fitnessn', fitnessn);
-  console.log('fitnessp', fitnessp);
+  //console.log('fitness', fitness);
+  //console.log('fitnessn', fitnessn);
+  //console.log('fitnessp', fitnessp);
 
-  console.log(user);
+  //console.log(user);
 
   const services = await getServices();
   return (

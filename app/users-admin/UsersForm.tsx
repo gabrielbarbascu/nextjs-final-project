@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { User } from '../../migrations/00000-createTableUsers';
-import FileUpload from '../components/FileUpload';
+import { UploadForm } from '../server/page';
 
 type Props = {
   users: User[];
@@ -14,6 +14,7 @@ export default function UsersForm({ users }: Props) {
   const [emailInput, setEmailInput] = useState('');
   const [phoneNumberInput, setPhoneNumberInput] = useState('');
   const [serviceInput, setServiceInput] = useState('');
+
   //add upload function for admin
 
   const [onEditId, setOnEditId] = useState(0);
@@ -23,7 +24,8 @@ export default function UsersForm({ users }: Props) {
   const [onEditPhoneNumberInput, setOnEditPhoneNumberInput] = useState('');
   const [onEditServiceInput, setOnEditServiceInput] = useState('');
 
-  async function createUser() {
+  {
+    /* async function createUser() {
     const response = await fetch('/api/users', {
       method: 'POST',
       body: JSON.stringify({
@@ -38,6 +40,7 @@ export default function UsersForm({ users }: Props) {
     const data = await response.json();
 
     setUserList([...userList, data.user]);
+  } */
   }
 
   async function updateUserById(id: number) {
@@ -48,7 +51,7 @@ export default function UsersForm({ users }: Props) {
         lastName: onEditLastNameInput,
         email: onEditEmailInput,
         phoneNumber: onEditPhoneNumberInput,
-        service: serviceInput,
+        service: onEditServiceInput,
       }),
     });
 
@@ -80,54 +83,13 @@ export default function UsersForm({ users }: Props) {
         <form
           onSubmit={async (event) => {
             event.preventDefault();
-            await createUser();
+            //await updateUserById();
           }}
         >
-          <label>
-            First Name:
-            <input
-              value={firstNameInput}
-              onChange={(event) => setFirstNameInput(event.currentTarget.value)}
-            />
-          </label>
-          <br />
-          <label>
-            Last Name:
-            <input
-              value={lastNameInput}
-              onChange={(event) => setLastNameInput(event.currentTarget.value)}
-            />
-          </label>
-          <br />
-          <label>
-            Email:
-            <input
-              value={emailInput}
-              onChange={(event) => setEmailInput(event.currentTarget.value)}
-            />
-          </label>
-          <label>
-            Phone Number:
-            <input
-              value={phoneNumberInput}
-              onChange={(event) =>
-                setPhoneNumberInput(event.currentTarget.value)
-              }
-            />
-          </label>
-          <br />
-          <label>
-            Service:
-            <input
-              value={serviceInput}
-              onChange={(event) => setServiceInput(event.currentTarget.value)}
-            />
-          </label>
-          <br />
-          <button>Create</button>
+          ALEX POPA ADMIN
         </form>
       </div>
-      <br />
+
       <>
         {userList.map((user) => {
           return (
@@ -201,7 +163,8 @@ export default function UsersForm({ users }: Props) {
               <button onClick={async () => await deleteUserById(user.id)}>
                 Delete
               </button>
-              <FileUpload />
+              <UploadForm />
+
             </div>
           );
         })}

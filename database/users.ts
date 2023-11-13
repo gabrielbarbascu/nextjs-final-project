@@ -40,23 +40,6 @@ export const getUsers = cache(async () => {
   return users;
 });
 
-{
-  /*export const createUser = cache(
-  async (username: string, passwordHash: string) => {
-    const [user] = await sql<User[]>`
-      INSERT INTO users
-        (username, password_hash)
-      VALUES
-        (${username.toLowerCase()}, ${passwordHash})
-      RETURNING
-        id,
-        username
-    `;
-    return user;
-  },
-); */
-}
-
 export const getUserByUsername = cache(async (username: string) => {
   const [user] = await sql<User[]>`
     SELECT
@@ -109,8 +92,10 @@ export const getUsersWithLimitAndOffset = cache(
       *
     FROM
       users
-    Limit ${limit}
-    OFFSET ${offset}
+    LIMIT
+     ${limit}
+    OFFSET
+     ${offset}
   `;
     return users;
   },
@@ -131,11 +116,9 @@ export const getUserById = cache(async (id: number) => {
 
 export const deleteUserById = cache(async (id: number) => {
   const [user] = await sql<User[]>`
-    DELETE FROM
-      users
+    DELETE FROM users
     WHERE
-      id = ${id}
-    RETURNING *
+      id = ${id} RETURNING *
   `;
 
   return user;
@@ -151,17 +134,15 @@ export const updateUserById = cache(
     service: string,
   ) => {
     const [user] = await sql<User[]>`
-      UPDATE
-        users
+      UPDATE users
       SET
         first_name = ${firstName},
         last_name = ${lastName},
         email = ${email},
         phone_number = ${phoneNumber},
-        service = ${service || null}
+        service = ${service}
 
-      WHERE id = ${id}
-      RETURNING *
+      WHERE id = ${id} RETURNING *
     `;
     return user;
   },

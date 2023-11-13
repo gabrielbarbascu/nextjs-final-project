@@ -19,7 +19,7 @@ export default async function UserProfilePage({ params }: Props) {
   const session =
     sessionTokenCookie &&
     (await getValidSessionByToken(sessionTokenCookie.value));
-  const uploadedFiles = [{ filename: 'file1.pdf' }, { filename: 'file2.pdf' }];
+  // Assuming singleUser.id contains the user's ID
 
   //  Query your database to check if this user is admin
 
@@ -29,10 +29,10 @@ export default async function UserProfilePage({ params }: Props) {
   if (!singleUser) redirect('/');
   const userServices = await getUserServices();
   console.log(userServices);
+
   return (
     <div className="profile-container">
       <h1 className="profile-title">{singleUser.username}'s Profile</h1>
-
       <section className="profile-section">
         <h2 className="section-title">Personal Data</h2>
         <p>
@@ -45,7 +45,6 @@ export default async function UserProfilePage({ params }: Props) {
           <strong>Gender:</strong> {singleUser.gender}
         </p>
       </section>
-
       <section className="profile-section">
         <h2 className="section-title">Contact Information</h2>
         <p>
@@ -61,21 +60,10 @@ export default async function UserProfilePage({ params }: Props) {
           <Link href="/services"> NOW</Link>
         </button>
       </section>
-      <section className="active-service">REACH GREATNESS</section>
+      <section className="active-service"></section>
+      <button>Download File</button>
 
-      <ul>
-        {uploadedFiles.map((file) => (
-          <li key={file.filename}>
-            {file.filename}
-            <a
-              href={`/api/download/${file.filename}`} // Download route
-              download // Optional attribute to prompt the browser for download
-            >
-              <button>Download</button>
-            </a>
-          </li>
-        ))}
-      </ul>
+      <p> service:</p>
     </div>
   );
 }
