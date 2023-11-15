@@ -2,12 +2,6 @@ import Image from 'next/image';
 import React from 'react';
 import Pna from '../public/pna.jpg';
 
-{
-  /*export default function Home() {
-  return <p>Get started by editing</p>;
-} */
-}
-
 const Home = () => {
   return (
     <div style={{ display: 'flex', alignItems: 'center', height: '100vh' }}>

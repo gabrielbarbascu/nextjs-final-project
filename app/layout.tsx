@@ -1,8 +1,8 @@
-import './globals.scss';
 import { Inter } from 'next/font/google';
 import { cookies } from 'next/headers';
 import Link from 'next/link';
 import { ReactNode } from 'react';
+import styles from '../app/styles/CookieBanner.module.scss';
 import { getUserBySessionToken } from '../database/users';
 import LogoutButton from './(auth)/logout/LogoutButton';
 import CookieBanner from './CookieBanner';

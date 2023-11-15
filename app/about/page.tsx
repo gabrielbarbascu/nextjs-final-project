@@ -15,24 +15,31 @@ export default function AboutPage() {
   return (
     <div>
       <div style={{ display: 'flex' }}>
-        {/* Left side with Pna1 image */}
         <div style={{ flex: 1, padding: '20px' }}>
-          <Image src={Pna1} alt="Pna1" className="pna1-image" />
+          <Image
+            src={Pna1}
+            width={100}
+            height={100}
+            alt="Pna1"
+            className="pna1-image"
+          />
         </div>
 
-        {/* Content in the middle */}
         <div style={{ flex: 2, padding: '10px' }}>
           <h1>Hello! I'm Alex and I'm a dedicated fitness trainer...</h1>
-          {/* Your existing content goes here */}
         </div>
 
-        {/* Right side with Pna2 image */}
         <div style={{ flex: 1, padding: '20px' }}>
-          <Image src={Pna2} alt="Pna2" className="pna2-image" />
+          <Image
+            src={Pna2}
+            alt="Pna2"
+            width={100}
+            height={100}
+            className="pna2-image"
+          />
         </div>
       </div>
 
-      {/* Contact information at the bottom */}
       <div className="contact">
         <p>Contact Information:</p>
         <ul>

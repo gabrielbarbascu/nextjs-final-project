@@ -18,6 +18,7 @@ const userSchema = z.object({
   email: z.string(),
   phoneNumber: z.string(),
   service: z.string(),
+  secureUrl: z.string(),
 });
 
 export async function GET(
@@ -88,6 +89,7 @@ export async function PUT(
     result.data.email,
     result.data.phoneNumber,
     result.data.service,
+    result.data.secureUrl,
   );
 
   if (!user) {

@@ -12,6 +12,7 @@
   "dependencies": {
     "axios": "^1.6.1",
     "bcrypt": "^5.1.1",
+    "cloudinary": "^1.41.0",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "filepond": "^4.30.4",

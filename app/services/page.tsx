@@ -52,11 +52,11 @@ export default async function ServicesPage() {
           <p>{service.duration}</p>
       <p>{service.price}$</p> */}
 
-          {/*  {user ? (
+          {/* {user ? (
             <ServiceButton userId={user.id} serviceId={service.id} />
           ) : (
             ''
-          )} */}
+          )}  */}
 
           <hr />
         </div>

@@ -1,7 +1,9 @@
 'use client';
+
+import Head from 'next/head';
 import { useState } from 'react';
 import { User } from '../../migrations/00000-createTableUsers';
-import { UploadForm } from '../server/page';
+import Cloud from '../cloudinary';
 
 type Props = {
   users: User[];
@@ -9,11 +11,13 @@ type Props = {
 
 export default function UsersForm({ users }: Props) {
   const [userList, setUserList] = useState(users);
-  const [firstNameInput, setFirstNameInput] = useState('');
+  {
+    /*const [firstNameInput, setFirstNameInput] = useState('');
   const [lastNameInput, setLastNameInput] = useState('');
   const [emailInput, setEmailInput] = useState('');
   const [phoneNumberInput, setPhoneNumberInput] = useState('');
-  const [serviceInput, setServiceInput] = useState('');
+const [serviceInput, setServiceInput] = useState(''); */
+  }
 
   //add upload function for admin
 
@@ -23,25 +27,6 @@ export default function UsersForm({ users }: Props) {
   const [onEditEmailInput, setOnEditEmailInput] = useState('');
   const [onEditPhoneNumberInput, setOnEditPhoneNumberInput] = useState('');
   const [onEditServiceInput, setOnEditServiceInput] = useState('');
-
-  {
-    /* async function createUser() {
-    const response = await fetch('/api/users', {
-      method: 'POST',
-      body: JSON.stringify({
-        firstName: firstNameInput,
-        lastName: lastNameInput,
-        email: emailInput,
-        phoneNumber: phoneNumberInput,
-        service: serviceInput,
-      }),
-    });
-
-    const data = await response.json();
-
-    setUserList([...userList, data.user]);
-  } */
-  }
 
   async function updateUserById(id: number) {
     const response = await fetch(`/api/users/${id}`, {
@@ -83,7 +68,6 @@ export default function UsersForm({ users }: Props) {
         <form
           onSubmit={async (event) => {
             event.preventDefault();
-            //await updateUserById();
           }}
         >
           ALEX POPA ADMIN
@@ -163,8 +147,7 @@ export default function UsersForm({ users }: Props) {
               <button onClick={async () => await deleteUserById(user.id)}>
                 Delete
               </button>
-              <UploadForm />
-
+              <Cloud />
             </div>
           );
         })}
