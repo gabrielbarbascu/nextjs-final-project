@@ -26,7 +26,7 @@ export async function up(sql: Sql) {
         first_name VARCHAR(50),
         last_name VARCHAR(50),
         date_of_birth VARCHAR(20),
-        gender VARCHAR(1),
+        gender VARCHAR(10),
         phone_number VARCHAR(50),
         service VARCHAR(50),
         secure_url VARCHAR(250),

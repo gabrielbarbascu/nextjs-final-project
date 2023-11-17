@@ -23,7 +23,7 @@ export async function POST(
 
   // 1. Get the user data from the request
   const body = await request.json();
-  console.log(body);
+
   // 2. Validate the user data
   const result = serviceSchema.safeParse(body);
 
@@ -35,6 +35,7 @@ export async function POST(
       },
     );
   }
+
   const newUserServices = await createUserService(
     result.data.userId,
     result.data.serviceId,

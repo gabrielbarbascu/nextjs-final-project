@@ -1,22 +1,28 @@
 'use client';
 
+// Import necessary modules and types
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { RegisterResponseBodyPost } from '../../api/(auth)/register/route';
 
+// Define the gender options
+type Gender = 'Male' | 'Female';
+
 export default function RegisterForm() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  // State variables for form inputs
+  const [username, setUsername] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
   const [errors, setErrors] = useState<{ message: string }[]>([]);
-  const [email, setEmail] = useState('');
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [dateOfBirth, setDateOfBirth] = useState('');
-  const [gender, setGender] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
+  const [email, setEmail] = useState<string>('');
+  const [firstName, setFirstName] = useState<string>('');
+  const [lastName, setLastName] = useState<string>('');
+  const [dateOfBirth, setDateOfBirth] = useState<string>('');
+  const [gender, setGender] = useState<Gender>('');
+  const [phoneNumber, setPhoneNumber] = useState<string>('');
 
   const router = useRouter();
 
+  // Handle form submission
   async function handleRegister(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
@@ -42,12 +48,10 @@ export default function RegisterForm() {
     }
 
     router.push(`/profile/${data.user.username}`);
-
-    // revalidatePath() throws unnecessary error, will be used when stable
-    // revalidatePath('/(auth)/login', 'page');
     router.refresh();
   }
 
+  // Render the form
   return (
     <form onSubmit={async (event) => await handleRegister(event)}>
       <label>
@@ -71,41 +75,40 @@ export default function RegisterForm() {
       <label>
         First name
         <input
-          type="first name"
+          type="text"
           onChange={(event) => setFirstName(event.currentTarget.value)}
         />
       </label>
-
       <label>
         Last name
         <input
-          type="last name"
+          type="text"
           onChange={(event) => setLastName(event.currentTarget.value)}
         />
       </label>
-
       <label>
         Date of birth
         <input
-          type="date of birth"
+          type="date"
           onChange={(event) => setDateOfBirth(event.currentTarget.value)}
         />
       </label>
       <label>
         Gender
-        <input
-          type="gender"
-          onChange={(event) => setGender(event.currentTarget.value)}
-        />
+        <select
+          onChange={(event) => setGender(event.currentTarget.value as Gender)}
+        >
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
       </label>
       <label>
         Phone number
         <input
-          type="phone number"
+          type="tel"
           onChange={(event) => setPhoneNumber(event.currentTarget.value)}
         />
       </label>
-
       <button>Create account</button>
 
       {errors.map((error) => (

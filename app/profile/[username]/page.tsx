@@ -1,4 +1,5 @@
 import './page.css';
+import { saveAs } from 'file-saver';
 import { cookies } from 'next/headers';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
@@ -6,6 +7,7 @@ import React from 'react';
 import { getUserServices } from '../../../database/services';
 import { getValidSessionByToken } from '../../../database/sessions';
 import { getUserByUsername } from '../../../database/users';
+import DownloadButton from './DownloadButton';
 
 type Props = {
   params: { username: string };
@@ -28,11 +30,11 @@ export default async function UserProfilePage({ params }: Props) {
   const singleUser = await getUserByUsername(params.username);
   if (!singleUser) redirect('/');
   const userServices = await getUserServices();
-  console.log(userServices);
 
   return (
     <div className="profile-container">
       <h1 className="profile-title">{singleUser.username}'s Profile</h1>
+
       <section className="profile-section">
         <h2 className="section-title">Personal Data</h2>
         <p>
@@ -45,6 +47,7 @@ export default async function UserProfilePage({ params }: Props) {
           <strong>Gender:</strong> {singleUser.gender}
         </p>
       </section>
+
       <section className="profile-section">
         <h2 className="section-title">Contact Information</h2>
         <p>
@@ -54,16 +57,25 @@ export default async function UserProfilePage({ params }: Props) {
           <strong>Phone Number:</strong> {singleUser.phoneNumber}
         </p>
       </section>
-      <section className="service-chosen">
-        You have no active service. Get in shape
-        <button>
-          <Link href="/services"> NOW</Link>
-        </button>
-      </section>
-      <section className="active-service"></section>
-      <button>Download File</button>
 
-      <p> service:</p>
+      <section className="active-service">
+        {singleUser && singleUser.secureUrl ? (
+          <>
+            <p>Your service is active.</p>
+            <DownloadButton
+              secureUrl={singleUser.secureUrl}
+              fileName="active-service"
+            />
+          </>
+        ) : (
+          <>
+            <p>You have no active service. Get in shape</p>
+            <button>
+              <Link href="/services">NOW</Link>
+            </button>
+          </>
+        )}
+      </section>
     </div>
   );
 }

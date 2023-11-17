@@ -79,7 +79,8 @@ export const getUserByUsername = cache(async (username: string) => {
       first_name,
       last_name,
       email,
-      phone_number
+      phone_number,
+      secure_url
     FROM
       users
     WHERE

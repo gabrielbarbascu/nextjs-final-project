@@ -1,10 +1,10 @@
 import Image from 'next/image';
+import React from 'react';
 import Email from '../../public/email.png';
 import Facebook from '../../public/facebook.png';
 import Instagram from '../../public/instagram.png';
 import Pna1 from '../../public/pna1.jpg';
 import Pna2 from '../../public/pna2.jpg';
-import Telephone from '../../public/telephone.png';
 
 export const metadata = {
   title: { default: 'About', template: '%s' },
@@ -60,15 +60,6 @@ export default function AboutPage() {
                 src={Instagram}
                 alt="Instagram"
                 className="instagram-image"
-              />
-            </a>
-          </li>
-          <li>
-            <a href="tel:+436706561791">
-              <Image
-                src={Telephone}
-                alt="Telephone"
-                className="telephone-image"
               />
             </a>
           </li>

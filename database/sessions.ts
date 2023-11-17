@@ -4,24 +4,27 @@ import { Session } from '../migrations/00003-createTableSessions';
 
 export const deleteExpiredSessions = cache(async () => {
   await sql`
-    DELETE FROM
-      sessions
+    DELETE FROM sessions
     WHERE
-      expiry_timestamp < now()
-    `;
+      expiry_timestamp < now ()
+  `;
 });
 
 export const createSession = cache(async (userId: number, token: string) => {
   const [session] = await sql<Session[]>`
-      INSERT INTO sessions
-        (user_id, token)
-      VALUES
-        (${userId}, ${token})
-      RETURNING
-        id,
-        token,
-        user_id
-    `;
+    INSERT INTO
+      sessions (
+        user_id,
+        token
+      )
+    VALUES
+      (
+        ${userId},
+        ${token}
+      ) RETURNING id,
+      token,
+      user_id
+  `;
 
   await deleteExpiredSessions();
 
@@ -30,19 +33,17 @@ export const createSession = cache(async (userId: number, token: string) => {
 
 export const deleteSessionByToken = cache(async (token: string) => {
   const [session] = await sql<{ id: number; token: string }[]>`
-    DELETE FROM
-      sessions
+    DELETE FROM sessions
     WHERE
-      sessions.token = ${token}
-    RETURNING
-      id,
+      sessions.token = ${token} RETURNING id,
       token
   `;
 
   return session;
 });
 
-export const getValidSessionByToken = cache(async (token: string) => {
+{
+  /*export const getValidSessionByToken = cache(async (token: string) => {
   const [session] = await sql<{ id: number; token: string }[]>`
     SELECT
       sessions.id,
@@ -53,6 +54,32 @@ export const getValidSessionByToken = cache(async (token: string) => {
       sessions.token = ${token}
     AND
       sessions.expiry_timestamp > now()
+  `;
+
+  return session;
+});   */
+}
+
+export const getValidSessionByToken = cache(async (token: string) => {
+  const [session] = await sql<
+    {
+      id: number;
+      token: string;
+      user: {
+        is_admin: boolean;
+      };
+    }[]
+  >`
+    SELECT
+      sessions.id,
+      sessions.token,
+      users.is_admin
+    FROM
+      sessions
+      INNER JOIN users ON sessions.user_id = users.id
+    WHERE
+      sessions.token = ${token}
+      AND sessions.expiry_timestamp > now ()
   `;
 
   return session;

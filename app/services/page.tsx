@@ -35,33 +35,21 @@ export default async function ServicesPage() {
     },
   );
 
-  //console.log('fitness', fitness);
-  //console.log('fitnessn', fitnessn);
-  //console.log('fitnessp', fitnessp);
-
-  //console.log(user);
-
   const services = await getServices();
   return (
     <div>
       <h1>YOU CHOOSE HOW YOU WANT TO REACH YOUR GREATNESS.</h1>
       {services.map((service) => (
         <div key={`service-div-${service.id}`}>
-          {/*<h2>{service.name}</h2>
-          <p>{service.description}</p>
-          <p>{service.duration}</p>
-      <p>{service.price}$</p> */}
-
-          {/* {user ? (
-            <ServiceButton userId={user.id} serviceId={service.id} />
-          ) : (
-            ''
-          )}  */}
-
           <hr />
         </div>
       ))}
-      <Services fitness={fitness} fitnessn={fitnessn} fitnessp={fitnessp} />
+      <Services
+        fitness={fitness}
+        fitnessn={fitnessn}
+        fitnessp={fitnessp}
+        isLoggedIn={!!user}
+      />
     </div>
   );
 }

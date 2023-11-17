@@ -3,7 +3,7 @@
 import Head from 'next/head';
 import { useState } from 'react';
 import { User } from '../../migrations/00000-createTableUsers';
-import Cloud from '../cloudinary';
+import styles from '../styles/Upload.module.scss';
 
 type Props = {
   users: User[];
@@ -20,6 +20,8 @@ const [serviceInput, setServiceInput] = useState(''); */
   }
 
   //add upload function for admin
+  const [imageSrc, setImageSrc] = useState();
+  const [uploadData, setUploadData] = useState();
 
   const [onEditId, setOnEditId] = useState(0);
   const [onEditFirstNameInput, setOnEditFirstNameInput] = useState('');
@@ -27,6 +29,43 @@ const [serviceInput, setServiceInput] = useState(''); */
   const [onEditEmailInput, setOnEditEmailInput] = useState('');
   const [onEditPhoneNumberInput, setOnEditPhoneNumberInput] = useState('');
   const [onEditServiceInput, setOnEditServiceInput] = useState('');
+
+  function handleOnChange(changeEvent) {
+    const reader = new FileReader();
+
+    reader.onload = function (onLoadEvent) {
+      setImageSrc(onLoadEvent.target.result);
+      setUploadData(undefined);
+    };
+
+    reader.readAsDataURL(changeEvent.target.files[0]);
+  }
+  async function handleOnSubmit(event) {
+    event.preventDefault();
+
+    const form = event.currentTarget;
+    const fileInput = Array.from(form.elements).find(
+      ({ name }) => name === 'file',
+    );
+
+    const formData = new FormData();
+
+    for (const file of fileInput.files) {
+      formData.append('file', file);
+    }
+
+    formData.append('upload_preset', 'my-uploads');
+    const data = await fetch(
+      'https://api.cloudinary.com/v1_1/djpycrkel/image/upload',
+      {
+        method: 'POST',
+        body: formData,
+      },
+    ).then((r) => r.json());
+
+    setImageSrc(data.secure_url);
+    setUploadData(data);
+  }
 
   async function updateUserById(id: number) {
     const response = await fetch(`/api/users/${id}`, {
@@ -37,6 +76,7 @@ const [serviceInput, setServiceInput] = useState(''); */
         email: onEditEmailInput,
         phoneNumber: onEditPhoneNumberInput,
         service: onEditServiceInput,
+        secureUrl: imageSrc,
       }),
     });
 
@@ -86,6 +126,7 @@ const [serviceInput, setServiceInput] = useState(''); */
                   setOnEditFirstNameInput(event.currentTarget.value)
                 }
                 disabled={user.id !== onEditId}
+                placeholder="First Name"
               />
               <input
                 value={
@@ -95,6 +136,7 @@ const [serviceInput, setServiceInput] = useState(''); */
                   setOnEditLastNameInput(event.currentTarget.value)
                 }
                 disabled={user.id !== onEditId}
+                placeholder="Last Name"
               />
               <input
                 value={user.id !== onEditId ? user.email : onEditEmailInput}
@@ -102,6 +144,7 @@ const [serviceInput, setServiceInput] = useState(''); */
                   setOnEditEmailInput(event.currentTarget.value)
                 }
                 disabled={user.id !== onEditId}
+                placeholder="Email"
               />
               <input
                 value={
@@ -113,6 +156,7 @@ const [serviceInput, setServiceInput] = useState(''); */
                   setOnEditPhoneNumberInput(event.currentTarget.value)
                 }
                 disabled={user.id !== onEditId}
+                placeholder="Phone Number"
               />
               <input
                 value={user.id !== onEditId ? user.service : onEditServiceInput}
@@ -120,6 +164,7 @@ const [serviceInput, setServiceInput] = useState(''); */
                   setOnEditServiceInput(event.currentTarget.value)
                 }
                 disabled={user.id !== onEditId}
+                placeholder="Service"
               />
               {onEditId === user.id ? (
                 <button
@@ -138,6 +183,7 @@ const [serviceInput, setServiceInput] = useState(''); */
                     setOnEditEmailInput(user.email);
                     setOnEditPhoneNumberInput(user.phoneNumber);
                     setOnEditServiceInput(user.service);
+
                     setOnEditId(user.id);
                   }}
                 >
@@ -147,7 +193,19 @@ const [serviceInput, setServiceInput] = useState(''); */
               <button onClick={async () => await deleteUserById(user.id)}>
                 Delete
               </button>
-              <Cloud />
+              <div>
+                <form
+                  className={styles.form}
+                  method="post"
+                  onChange={handleOnChange}
+                  onSubmit={handleOnSubmit}
+                >
+                  <p>
+                    <input type="file" name="file" />
+                  </p>
+                  <button>Upload Files</button>
+                </form>
+              </div>
             </div>
           );
         })}

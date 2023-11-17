@@ -1,9 +1,11 @@
 import { Inter } from 'next/font/google';
 import { cookies } from 'next/headers';
+import Image from 'next/image';
 import Link from 'next/link';
 import { ReactNode } from 'react';
 import styles from '../app/styles/CookieBanner.module.scss';
 import { getUserBySessionToken } from '../database/users';
+import Avatar from '../public/avatar.png';
 import LogoutButton from './(auth)/logout/LogoutButton';
 import CookieBanner from './CookieBanner';
 
@@ -41,7 +43,14 @@ export default async function RootLayout(props: Props) {
             {user ? (
               <>
                 <a href={`/profile/${user.username}`}>
-                  <div>{user.username}</div>
+                  <div>
+                    <Image
+                      src={Avatar}
+                      alt={`${user.username}'s profile`}
+                      width={35}
+                      height={35}
+                    />
+                  </div>
                 </a>
 
                 <LogoutButton />
