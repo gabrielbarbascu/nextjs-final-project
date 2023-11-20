@@ -1,0 +1,138 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.about {
+  background-color: #2a2b2a;
+  padding: 20px;
+}
+
+.about-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #2a2b2a;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+.about-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  color: #fff;
+  font-weight: 300;
+  text-align: center; /* Center-align text for better readability */
+}
+
+.about-content {
+  max-width: 800px; /* Increase the max-width for better readability */
+  margin: 20px 2px; /* Add margin for better spacing */
+}
+
+.about-image1 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  width: 300px; /* Adjust the width as needed */
+  height: 400px; /* Adjust the height as needed */
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.about-image2 {
+  position: absolute;
+  top: 75px;
+  right: 0;
+
+  width: 330px; /* Adjust the width as needed */
+  height: 400px; /* Adjust the height as needed */
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+/* Add some additional styles for better readability */
+.about-content h1 {
+  font-size: 30px;
+  margin-bottom: 50px;
+  margin-right: 50px;
+  color: #fae35e;
+  font-style: oblique;
+}
+
+.about-content p {
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: left;
+  margin-bottom: 50px;
+}
+
+a {
+  text-decoration: none; /* Remove underline from links */
+  color: #fff;
+}
+/* Style for social media images */
+.contact-image {
+  width: 50px; /* Adjust the width as needed */
+  height: 50px; /* Adjust the height as needed */
+  border-radius: 10%; /* Make the images circular */
+  transition: transform 0.3s ease; /* Add a smooth transition effect */
+  box-shadow: rgba(255, 119, 119, 0.3);
+}
+
+/* Hover effect for contact images */
+.contact-image:hover {
+  transform: scale(1.2); /* Increase the size on hover */
+  box-shadow: rgba(255, 119, 119, 0.3);
+}
+/* Style for contact section */
+.contact-section {
+  position: fixed;
+  bottom: 0;
+  right: 10px; /* Adjust the right property to move it left or right */
+  background-color: #549e54;
+  padding: 0.1px; /* Adjust the padding as needed */
+  padding-left: 10px;
+
+  color: #000000;
+  border-radius: 25px; /* Optional: Add rounded corners to the top-left */
+  font-size: 15px; /* Adjust the font size as needed */
+  transition: background-color 0.3s ease;
+}
+.contact-section:hover {
+  background-color: rgb(
+    125,
+    158,
+    84
+  ); /* Change the background color on hover */
+}
+
+.contact-section p {
+  font-size: 18px; /* Adjust the font size for the paragraph */
+  max-width: 290px; /* Set a maximum width for the paragraph */
+  word-wrap: break-word; /* Allow the paragraph to break into multiple lines */
+  font-style: italic;
+}
+
+.social-media-container {
+  margin-top: -15px; /* Adjust the margin-top as needed */
+}
+
+ul {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin-left: 20px;
+}
+
+li {
+  display: flex;
+  margin-right: 15px;
+  margin-left: 17px;
+}

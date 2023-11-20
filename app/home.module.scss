@@ -1,0 +1,105 @@
+.homeWrapper {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.homeContainer {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  background-color: #2a2b2a; /* Grey background color */
+  overflow: hidden; /* Hide overflow to prevent scrolling */
+}
+
+.leftContainer,
+.rightContainer {
+  flex: 1;
+  position: relative;
+}
+.leftContainer {
+  padding: 20px;
+  text-align: left;
+  z-index: 2; /* Ensure the left content appears above the image */
+}
+
+.rightContainer {
+  position: relative;
+  width: 100%; /* Take up the remaining width */
+  height: 100%; /* Take up the full height */
+}
+
+.leftSide {
+  p {
+    margin-bottom: 40px; /* Add margin between paragraphs */
+    color: rgb(250, 244, 244); /* Set text color to white */
+    font-size: 25px;
+    margin-left: 20px;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .joinNowBtn {
+    margin-right: 10px;
+    margin-left: 120px;
+    background-color: rgb(31, 167, 51); /* Green button background color */
+    color: black; /* Black text color */
+    border: none; /* Remove button border */
+    padding: 25px; /* Adjust padding */
+    cursor: pointer; /* Add pointer cursor on hover */
+    border-radius: 10px; /* Adjust the border-radius for rounded corners */
+    font-size: 25px;
+    transition: transform 0.3s ease; /* Add a smooth transition effect */
+    margin-top: 30px;
+  }
+
+  .joinNowBtn:hover {
+    transform: scale(1.3); /* Scale up the button on hover */
+    box-shadow: 0 0 10px rgba(255, 73, 73, 0.3); /* Add a subtle shadow on hover */
+  }
+
+  .getInTouchBtn {
+    background-color: #3e3e3e; /* Grey button background color */
+    color: white; /* White text color */
+    border: none; /* Remove button border */
+    padding: 10px; /* Adjust padding */
+    cursor: pointer; /* Add pointer cursor on hover */
+    border-radius: 10px;
+    margin-right: 30px;
+    transition: transform 0.3s ease; /* Add a smooth transition effect */
+    margin-left: 50px;
+  }
+
+  .getInTouchBtn:hover {
+    transform: scale(1.1); /* Scale up the button on hover */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add a subtle shadow on hover */
+  }
+}
+
+.rightSide {
+  padding: 20px;
+  text-align: left;
+  margin-bottom: 50px;
+}
+
+.imageContainer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 10;
+
+  width: 130%; /* Use 100% width to cover the entire right side */
+  height: 100%; /* Use 100% height to cover the entire right side */
+  overflow: hidden;
+}
+
+.image {
+  width: 130%; /* Make the image fill the container */
+  height: 90%; /* Make the image fill the container */
+  object-fit: contain; /* Ensures the image covers the container without distortion */
+  border-radius: 10px; /* Optional: Adds a border radius for a rounded appearance */
+  margin-left: 90px;
+}

@@ -1,0 +1,29 @@
+// SuccessPage.scss
+
+$primary-color: #3498db; // You can change this to your desired color
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f2f2f2;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.success-page {
+  text-align: center;
+  margin-top: 50px;
+
+  h1 {
+    color: $primary-color;
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+
+  // You can add more styles as needed
+}

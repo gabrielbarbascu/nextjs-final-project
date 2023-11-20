@@ -3,7 +3,6 @@
 import Head from 'next/head';
 import { useState } from 'react';
 import { User } from '../../migrations/00000-createTableUsers';
-import styles from '../styles/Upload.module.scss';
 
 type Props = {
   users: User[];
@@ -195,7 +194,6 @@ const [serviceInput, setServiceInput] = useState(''); */
               </button>
               <div>
                 <form
-                  className={styles.form}
                   method="post"
                   onChange={handleOnChange}
                   onSubmit={handleOnSubmit}

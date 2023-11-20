@@ -1,6 +1,8 @@
 'use client';
 import { saveAs } from 'file-saver';
+import Image from 'next/image';
 import React from 'react';
+import Download from '../../../public/download.png';
 
 interface DownloadButtonProps {
   secureUrl: string | undefined;
@@ -21,7 +23,11 @@ const DownloadButton: React.FC<DownloadButtonProps> = ({
     }
   };
 
-  return <button onClick={handleDownloadClick}>Download File</button>;
+  return (
+    <button onClick={handleDownloadClick}>
+      <Image src={Download} alt="Download" width="50" height="50" />
+    </button>
+  );
 };
 
 export default DownloadButton;

@@ -1,3 +1,4 @@
+import './service.scss';
 import { cookies } from 'next/headers';
 import { getServices } from '../../database/services';
 import { getUserBySessionToken } from '../../database/users';
@@ -38,18 +39,20 @@ export default async function ServicesPage() {
   const services = await getServices();
   return (
     <div>
-      <h1>YOU CHOOSE HOW YOU WANT TO REACH YOUR GREATNESS.</h1>
+      <h1 className="page-header">
+        YOU CHOOSE HOW YOU WANT TO REACH YOUR GREATNESS.
+      </h1>
       {services.map((service) => (
-        <div key={`service-div-${service.id}`}>
-          <hr />
-        </div>
+        <div key={`service-div-${service.id}`}></div>
       ))}
-      <Services
-        fitness={fitness}
-        fitnessn={fitnessn}
-        fitnessp={fitnessp}
-        isLoggedIn={!!user}
-      />
+      <div>
+        <Services
+          fitness={fitness}
+          fitnessn={fitnessn}
+          fitnessp={fitnessp}
+          isLoggedIn={!!user}
+        />
+      </div>
     </div>
   );
 }

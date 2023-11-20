@@ -1,16 +1,15 @@
+import './layout.scss';
 import { Inter } from 'next/font/google';
 import { cookies } from 'next/headers';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ReactNode } from 'react';
-import styles from '../app/styles/CookieBanner.module.scss';
 import { getUserBySessionToken } from '../database/users';
 import Avatar from '../public/avatar.png';
+import Logo from '../public/icon-192.png';
 import LogoutButton from './(auth)/logout/LogoutButton';
-import CookieBanner from './CookieBanner';
 
 const inter = Inter({ subsets: ['latin'] });
-
 export const metadata = {
   title: { default: 'Home page | PNA Academy', template: '%s | PNA Academy' },
   description:
@@ -31,34 +30,55 @@ export default async function RootLayout(props: Props) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <CookieBanner />
         <nav>
-          <div>
-            <Link href="/">HOME</Link>
-            <Link href="/services">SERVICES</Link>
-            <Link href="/about">ABOUT</Link>
+          <div className="left-side">
+            <Link href={'/'}>
+              <div>
+                <Image
+                  src={Logo}
+                  alt={'Pna Academy Logo'}
+                  width={50}
+                  height={50}
+                />
+              </div>
+            </Link>
+            <span className="user-name">ALEX POPA</span>
           </div>
 
-          <div>
+          <div className="right-side">
+            <Link href="/" className="text-white">
+              HOME
+            </Link>
+            <Link href="/services" className="text-white">
+              SERVICES
+            </Link>
+            <Link href="/about" className="text-white">
+              ABOUT
+            </Link>
+
             {user ? (
               <>
-                <a href={`/profile/${user.username}`}>
+                <Link href={`/profile/${user.username}`} className="text-white">
                   <div>
                     <Image
                       src={Avatar}
                       alt={`${user.username}'s profile`}
-                      width={35}
-                      height={35}
+                      width="40"
+                      height="40"
                     />
                   </div>
-                </a>
+                </Link>
 
                 <LogoutButton />
               </>
             ) : (
               <>
-                <Link href="/register">Register</Link>
-                <Link href="/login">Login</Link>
+                <Link href="/register" className="text-white">
+                  REGISTER
+                </Link>
+                <Link href="/login" className="text-white">
+                  LOGIN
+                </Link>
               </>
             )}
           </div>

@@ -1,5 +1,6 @@
 'use client';
-import './page.css';
+
+import './login.scss';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { getSafeReturnToPath } from '../../../util/validation';
@@ -47,28 +48,41 @@ export default function LoginForm(props: Props) {
   }
 
   return (
-    <form onSubmit={async (event) => await handleRegister(event)}>
-      <label>
-        Username
-        <input onChange={(event) => setUsername(event.currentTarget.value)} />
-      </label>
-      <label>
-        Password
-        <input
-          type="password"
-          onChange={(event) => setPassword(event.currentTarget.value)}
-        />
-      </label>
-      <button>Login</button>
-      <p>
-        Don't have an account ?<a href="/register">Create one.</a>
-      </p>
-
-      {errors.map((error) => (
-        <div className="error" key={`error-${error.message}`}>
-          Error: {error.message}
+    <div className="login-container">
+      <form onSubmit={async (event) => await handleRegister(event)}>
+        <div className="form-group">
+          <label>
+            USERNAME
+            <input
+              className="input-field"
+              onChange={(event) => setUsername(event.currentTarget.value)}
+            />
+          </label>
         </div>
-      ))}
-    </form>
+
+        <div className="form-group">
+          <label>
+            PASSWORD
+            <input
+              className="input-field"
+              type="password"
+              onChange={(event) => setPassword(event.currentTarget.value)}
+            />
+          </label>
+        </div>
+
+        <button className="login-button">LOGIN</button>
+
+        <p className="account-message">
+          <a href="/register"> Don't have an account? Create one.</a>
+        </p>
+
+        {errors.map((error) => (
+          <div className="error" key={`error-${error.message}`}>
+            Error: {error.message}
+          </div>
+        ))}
+      </form>
+    </div>
   );
 }

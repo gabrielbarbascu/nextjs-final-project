@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import { useState } from 'react';
-import styles from '../styles/Upload.module.scss';
 
 export default function Cloud() {
   const [imageSrc, setImageSrc] = useState();

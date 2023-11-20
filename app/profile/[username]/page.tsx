@@ -1,4 +1,4 @@
-import './page.css';
+import './profile.scss';
 import { saveAs } from 'file-saver';
 import { cookies } from 'next/headers';
 import Link from 'next/link';
@@ -11,6 +11,10 @@ import DownloadButton from './DownloadButton';
 
 type Props = {
   params: { username: string };
+};
+export const metadata = {
+  title: { default: 'Profile', template: '%s' },
+  description: 'User Profile information',
 };
 
 export default async function UserProfilePage({ params }: Props) {
@@ -34,20 +38,20 @@ export default async function UserProfilePage({ params }: Props) {
   return (
     <div className="profile-container">
       <h1 className="profile-title">{singleUser.username}'s Profile</h1>
-
-      <section className="profile-section">
-        <h2 className="section-title">Personal Data</h2>
-        <p>
-          <strong>Name:</strong> {singleUser.firstName} {singleUser.lastName}
-        </p>
-        <p>
-          <strong>Date of Birth:</strong> {singleUser.dateOfBirth}
-        </p>
-        <p>
-          <strong>Gender:</strong> {singleUser.gender}
-        </p>
-      </section>
-
+      <div className="profile-content">
+        <section className="profile-section">
+          <h2 className="section-title">Personal Data</h2>
+          <p>
+            <strong>Name:</strong> {singleUser.firstName} {singleUser.lastName}
+          </p>
+          <p>
+            <strong>Date of Birth:</strong> {singleUser.dateOfBirth}
+          </p>
+          <p>
+            <strong>Gender:</strong> {singleUser.gender}
+          </p>
+        </section>
+      </div>
       <section className="profile-section">
         <h2 className="section-title">Contact Information</h2>
         <p>
@@ -69,10 +73,14 @@ export default async function UserProfilePage({ params }: Props) {
           </>
         ) : (
           <>
-            <p>You have no active service. Get in shape</p>
-            <button>
-              <Link href="/services">NOW</Link>
-            </button>
+            <div className="not-active">
+              <p>You have no active service. Get in shape</p>
+            </div>
+            <div className="service-link">
+              <button className="now">
+                <Link href="/services">NOW</Link>
+              </button>
+            </div>
           </>
         )}
       </section>
