@@ -34,7 +34,7 @@ export async function POST(
 
   const session = await stripeClient.checkout.sessions.create({
     // replace the url with the domain once the app is deployed
-    success_url: 'http://localhost:3000/success',
+    success_url: 'https://pnaacademy.fly.dev/success',
     line_items: [{ price: body.price, quantity: body.quantity || 1 }],
     mode: body.quantity ? 'payment' : 'subscription',
   });

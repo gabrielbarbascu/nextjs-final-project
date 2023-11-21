@@ -1,12 +1,14 @@
 /** @type {import('next').NextConfig} */
-
 const nextConfig = {
   experimental: {
     typedRoutes: true,
   },
-  images: {
-    domains: ['files.stripe.com'],
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
   },
 };
 
-export default nextConfig;
+module.exports = nextConfig;

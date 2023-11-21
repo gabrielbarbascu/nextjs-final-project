@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { z } from 'zod';
 import { getUsersWithLimitAndOffset } from '../../../database/users';
 import { User } from '../../../migrations/00000-createTableUsers';
 
