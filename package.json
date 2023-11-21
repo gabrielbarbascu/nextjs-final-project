@@ -10,7 +10,6 @@
     "migrate": "ley --require tsm"
   },
   "dependencies": {
-    "axios": "^1.6.1",
     "bcrypt": "^5.1.1",
     "cloudinary": "^1.41.0",
     "dotenv": "^16.3.1",
@@ -19,10 +18,8 @@
     "filepond": "^4.30.4",
     "fs": "0.0.1-security",
     "ley": "^0.8.1",
-    "multer": "1.4.5-lts.1",
     "next": "14.0.3",
     "next-connect": "1.0.0-next.4",
-    "pdf2json": "^3.0.5",
     "pg-promise": "^11.5.4",
     "postgres": "^3.4.1",
     "react": "^18",
@@ -45,8 +42,7 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.4.16",
-    "daisyui": "^4.4.2",
-    "eslint-config-upleveled": "^7.0.0",
+    "eslint-config-upleveled": "^7.2.0",
     "postcss": "^8.4.31",
     "prettier-plugin-embed": "^0.2.5",
     "prettier-plugin-sql": "^0.16.0",
