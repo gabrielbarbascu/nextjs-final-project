@@ -1,5 +1,5 @@
 'use client';
-
+import './register.scss';
 // Import necessary modules and types
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
@@ -53,69 +53,91 @@ export default function RegisterForm() {
 
   // Render the form
   return (
-    <form onSubmit={async (event) => await handleRegister(event)}>
-      <label>
-        Username
-        <input onChange={(event) => setUsername(event.currentTarget.value)} />
-      </label>
-      <label>
-        Password
-        <input
-          type="password"
-          onChange={(event) => setPassword(event.currentTarget.value)}
-        />
-      </label>
-      <label>
-        Email
-        <input
-          type="email"
-          onChange={(event) => setEmail(event.currentTarget.value)}
-        />
-      </label>
-      <label>
-        First name
-        <input
-          type="text"
-          onChange={(event) => setFirstName(event.currentTarget.value)}
-        />
-      </label>
-      <label>
-        Last name
-        <input
-          type="text"
-          onChange={(event) => setLastName(event.currentTarget.value)}
-        />
-      </label>
-      <label>
-        Date of birth
-        <input
-          type="date"
-          onChange={(event) => setDateOfBirth(event.currentTarget.value)}
-        />
-      </label>
-      <label>
-        Gender
-        <select
-          onChange={(event) => setGender(event.currentTarget.value as Gender)}
-        >
-          <option value="Male">Male</option>
-          <option value="Female">Female</option>
-        </select>
-      </label>
-      <label>
-        Phone number
-        <input
-          type="tel"
-          onChange={(event) => setPhoneNumber(event.currentTarget.value)}
-        />
-      </label>
-      <button>Create account</button>
-
-      {errors.map((error) => (
-        <div className="error" key={`error-${error.message}`}>
-          Error: {error.message}
+    <div className="registration-form">
+      <form onSubmit={async (event) => await handleRegister(event)}>
+        <div className="form-group">
+          <label>
+            USERNAME
+            <input
+              onChange={(event) => setUsername(event.currentTarget.value)}
+            />
+          </label>
         </div>
-      ))}
-    </form>
+        <div className="form-group">
+          <label>
+            PASSWORD
+            <input
+              type="password"
+              onChange={(event) => setPassword(event.currentTarget.value)}
+            />
+          </label>
+        </div>
+        <div className="form-group">
+          <label>
+            EMAIL
+            <input
+              type="email"
+              onChange={(event) => setEmail(event.currentTarget.value)}
+            />
+          </label>
+        </div>
+        <div className="form-group">
+          <label>
+            FIRST NAME
+            <input
+              onChange={(event) => setFirstName(event.currentTarget.value)}
+            />
+          </label>
+        </div>
+        <div className="form-group">
+          <label>
+            LAST NAME
+            <input
+              onChange={(event) => setLastName(event.currentTarget.value)}
+            />
+          </label>
+        </div>
+        <div className="form-group">
+          <label>
+            DATE OF BIRTH
+            <input
+              type="date"
+              onChange={(event) => setDateOfBirth(event.currentTarget.value)}
+            />
+          </label>
+        </div>
+        <div className="form-group">
+          <label>
+            GENDER
+            <select
+              onChange={(event) =>
+                setGender(event.currentTarget.value as Gender)
+              }
+            >
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          </label>
+        </div>
+        <div className="form-group">
+          <label>
+            PHONE NUMBER
+            <input
+              type="tel"
+              onChange={(event) => setPhoneNumber(event.currentTarget.value)}
+            />
+          </label>
+        </div>
+        <div className="form-button">
+          <button>SIGN UP</button>
+        </div>
+
+        {errors.map((error) => (
+          <div className="error" key={`error-${error.message}`}>
+            Error: {error.message}
+          </div>
+        ))}
+      </form>
+    </div>
   );
 }

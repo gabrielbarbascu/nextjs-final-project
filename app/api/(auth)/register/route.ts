@@ -15,7 +15,7 @@ const registerSchema = z.object({
   firstName: z.string().min(1),
   lastName: z.string().min(1),
   dateOfBirth: z.string().min(1),
-  gender: z.string(),
+  gender: z.string().min(1),
   phoneNumber: z.string().min(1),
 });
 

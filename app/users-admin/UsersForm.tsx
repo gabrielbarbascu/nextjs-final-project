@@ -1,5 +1,5 @@
 'use client';
-
+import './admin.scss';
 import Head from 'next/head';
 import { useState } from 'react';
 import { User } from '../../migrations/00000-createTableUsers';
@@ -10,15 +10,7 @@ type Props = {
 
 export default function UsersForm({ users }: Props) {
   const [userList, setUserList] = useState(users);
-  {
-    /*const [firstNameInput, setFirstNameInput] = useState('');
-  const [lastNameInput, setLastNameInput] = useState('');
-  const [emailInput, setEmailInput] = useState('');
-  const [phoneNumberInput, setPhoneNumberInput] = useState('');
-const [serviceInput, setServiceInput] = useState(''); */
-  }
 
-  //add upload function for admin
   const [imageSrc, setImageSrc] = useState();
   const [uploadData, setUploadData] = useState();
 
@@ -105,6 +97,7 @@ const [serviceInput, setServiceInput] = useState(''); */
     <>
       <div>
         <form
+          className="admin-form"
           onSubmit={async (event) => {
             event.preventDefault();
           }}
@@ -116,8 +109,9 @@ const [serviceInput, setServiceInput] = useState(''); */
       <>
         {userList.map((user) => {
           return (
-            <div key={`user-inputs-${user.id}`}>
+            <div key={`user-inputs-${user.id}`} className="user-container">
               <input
+                className="user-input"
                 value={
                   user.id !== onEditId ? user.firstName : onEditFirstNameInput
                 }
@@ -128,6 +122,7 @@ const [serviceInput, setServiceInput] = useState(''); */
                 placeholder="First Name"
               />
               <input
+                className="user-input"
                 value={
                   user.id !== onEditId ? user.lastName : onEditLastNameInput
                 }
@@ -138,6 +133,7 @@ const [serviceInput, setServiceInput] = useState(''); */
                 placeholder="Last Name"
               />
               <input
+                className="user-input"
                 value={user.id !== onEditId ? user.email : onEditEmailInput}
                 onChange={(event) =>
                   setOnEditEmailInput(event.currentTarget.value)
@@ -146,6 +142,7 @@ const [serviceInput, setServiceInput] = useState(''); */
                 placeholder="Email"
               />
               <input
+                className="user-input"
                 value={
                   user.id !== onEditId
                     ? user.phoneNumber
@@ -158,6 +155,7 @@ const [serviceInput, setServiceInput] = useState(''); */
                 placeholder="Phone Number"
               />
               <input
+                className="user-input"
                 value={user.id !== onEditId ? user.service : onEditServiceInput}
                 onChange={(event) =>
                   setOnEditServiceInput(event.currentTarget.value)
@@ -167,15 +165,17 @@ const [serviceInput, setServiceInput] = useState(''); */
               />
               {onEditId === user.id ? (
                 <button
+                  className="user-button save"
                   onClick={async () => {
                     await updateUserById(user.id);
                     setOnEditId(0);
                   }}
                 >
-                  Save
+                  SAVE
                 </button>
               ) : (
                 <button
+                  className="user-button edit"
                   onClick={() => {
                     setOnEditFirstNameInput(user.firstName);
                     setOnEditLastNameInput(user.lastName);
@@ -186,22 +186,26 @@ const [serviceInput, setServiceInput] = useState(''); */
                     setOnEditId(user.id);
                   }}
                 >
-                  Edit
+                  EDIT
                 </button>
               )}
-              <button onClick={async () => await deleteUserById(user.id)}>
-                Delete
+              <button
+                className="user-button delete"
+                onClick={async () => await deleteUserById(user.id)}
+              >
+                DELETE
               </button>
               <div>
                 <form
+                  className="upload-form"
                   method="post"
                   onChange={handleOnChange}
                   onSubmit={handleOnSubmit}
                 >
                   <p>
-                    <input type="file" name="file" />
+                    <input type="file" name="file" className="file-input" />
                   </p>
-                  <button>Upload Files</button>
+                  <button className="upload-button">UPLOAD </button>
                 </form>
               </div>
             </div>

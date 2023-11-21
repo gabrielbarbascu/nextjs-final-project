@@ -17,11 +17,18 @@ body {
   background-color: #346034;
   border-radius: 15px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  &:hover {
+    transform: scale(1.1);
+
+    box-shadow: 0 0 10px rgba(250, 227, 94, 0.5);
+  }
 }
 
 /* Style for form groups (Username and Password) */
 .form-group {
-  font-style: bold;
+  font-weight: 400;
+  font-style: italic;
   margin-bottom: 15px;
   margin-left: 50px label {
     display: block;
@@ -50,6 +57,7 @@ body {
   border-radius: 10px; /* Increase border-radius for rounded corners */
   cursor: pointer;
   font-size: 20px; /* Increase font size for the button text */
+  font-weight: 400;
   transition: transform 0.3s ease;
 
   &:hover {
@@ -62,7 +70,7 @@ body {
   color: #fff;
   background-color: black;
   border-radius: 10px;
-
+  font-style: italic;
   transition: transform 0.5s ease;
   &:hover {
     transform: scale(1.1); /* Increase the size on hover */

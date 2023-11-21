@@ -1,0 +1,78 @@
+body {
+  background-color: #2a2b2a;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.registration-form {
+  max-width: 300px;
+  margin: 0 auto;
+  margin-top: 30px;
+
+  .form-group {
+    margin-bottom: 5px;
+    margin-right: 15px;
+    background-color: #346034;
+    margin-top: 10px;
+    border-radius: 15px;
+    transition: transform 0.5s ease;
+
+    &:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 10px rgba(250, 227, 94, 0.5);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 450;
+      font-style: italic;
+      color: rgb(0, 0, 0);
+      padding-left: 5px;
+      padding-right: 5px;
+
+      input,
+      select {
+        width: 100%;
+        padding: 5px;
+        box-sizing: border-box;
+        margin-bottom: 8px;
+        border-radius: 5px;
+      }
+    }
+  }
+
+  .form-button button {
+    background-color: rgb(31, 167, 51);
+    color: rgb(0, 0, 0);
+    padding: 15px 20px;
+    font-size: 20px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    border-radius: 15px;
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.3s ease;
+    margin-top: 20px;
+
+    &:hover {
+      transform: scale(1.3);
+
+      box-shadow: 0 0 10px rgba(250, 227, 94, 0.5);
+    }
+  }
+
+  .error {
+    color: #ff0000; /* Red color for error text */
+    margin-top: 10px;
+    background-color: #ffe6e6; /* Light red background color */
+    padding: 10px; /* Add padding for better visibility */
+    border-radius: 5px; /* Optional: Add rounded corners for a softer appearance */
+    border: 1px solid #ff6666; /* Optional: Add a border for better separation */
+    position: absolute; /* Position the error message absolutely */
+    top: 100px;
+    left: 0;
+  }
+}

@@ -1,0 +1,133 @@
+/* General styling */
+body {
+  background-color: #3e3e3e;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Admin Form styling */
+.admin-form {
+  font-size: 1em; /* Adjust the font size */
+  font-style: bold;
+  color: white;
+  padding: 20px;
+  background-color: #000000;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 20px auto; /* Center the form horizontally */
+  border-radius: 25px; /* Adjust the border radius */
+  max-width: 155px; /* Set a maximum width */
+  width: 100%; /* Make it fill its container */
+}
+
+/* User Container styling */
+.user-container {
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  background-color: black;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+/* User Input styling */
+.user-input {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 8px;
+  width: 10%;
+  box-sizing: border-box;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  transition: transform 0.5s ease; /* Add a smooth transition effect */
+  &:hover {
+    transform: scale(1.2); /* Scale up the item on hover */
+  }
+}
+
+/* User Button styling */
+.user-button {
+  padding: 10px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+}
+
+.user-button.save {
+  background-color: #28a745;
+  color: #ffffff;
+  margin-right: 5px;
+  margin-left: 10px;
+  font-size: 15px;
+  transition: transform 0.5s ease; /* Add a smooth transition effect */
+  &:hover {
+    transform: scale(1.2); /* Scale up the item on hover */
+  }
+}
+
+.user-button.edit {
+  background-color: #005ab9;
+  color: #ffffff;
+  margin-right: 5px;
+  margin-left: 10px;
+  font-size: 15px;
+  transition: transform 0.5s ease; /* Add a smooth transition effect */
+  &:hover {
+    transform: scale(1.2); /* Scale up the item on hover */
+  }
+}
+
+.user-button.delete {
+  background-color: #dc3545;
+  color: #ffffff;
+  margin-right: 5px;
+  margin-left: 5px;
+  font-size: 15px;
+  transition: transform 0.5s ease; /* Add a smooth transition effect */
+  &:hover {
+    transform: scale(1.2); /* Scale up the item on hover */
+  }
+}
+
+/* Upload Form Container styling */
+.upload-form-container {
+  margin-top: 20px;
+}
+
+/* Upload Form styling */
+.upload-form {
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 25px;
+  width: 200px;
+  margin-left: 800px;
+}
+
+/* File Input styling */
+.file-input {
+  margin-left: 6px;
+  margin-bottom: 5px;
+  color: white;
+  font-size: 15px;
+  border-radius: 10px;
+  transition: transform 0.5s ease; /* Add a smooth transition effect */
+  &:hover {
+    transform: scale(1.1); /* Scale up the item on hover */
+  }
+}
+
+/* Upload Button styling */
+.upload-button {
+  background-color: #007bff;
+  color: #ffffff;
+  margin-left: 20px;
+  font-size: 15px;
+  border-radius: 10px;
+  transition: transform 0.5s ease; /* Add a smooth transition effect */
+  &:hover {
+    transform: scale(1.2); /* Scale up the item on hover */
+  }
+}
