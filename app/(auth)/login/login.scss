@@ -14,14 +14,14 @@ body {
   margin: auto;
   margin-top: 100px;
   padding: 20px;
-  background-color: #346034;
+  background-color: #50717b;
   border-radius: 15px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease;
   &:hover {
     transform: scale(1.1);
 
-    box-shadow: 0 0 10px rgba(250, 227, 94, 0.5);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   }
 }
 
@@ -42,7 +42,7 @@ body {
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #fff;
-    color: #333;
+    color: #2a2a2a;
     margin-right: 100px;
   }
 }
@@ -68,7 +68,7 @@ body {
 /* Style for the account message */
 .account-message {
   color: #fff;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.8);
   border-radius: 10px;
   font-style: italic;
   transition: transform 0.5s ease;

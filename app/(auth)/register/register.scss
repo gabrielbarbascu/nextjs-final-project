@@ -13,14 +13,14 @@ body {
   .form-group {
     margin-bottom: 5px;
     margin-right: 15px;
-    background-color: #346034;
+    background-color: #50717b;
     margin-top: 10px;
     border-radius: 15px;
     transition: transform 0.5s ease;
 
     &:hover {
       transform: scale(1.1);
-      box-shadow: 0 0 10px rgba(250, 227, 94, 0.5);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     }
 
     label {
@@ -44,7 +44,7 @@ body {
   }
 
   .form-button button {
-    background-color: rgb(31, 167, 51);
+    background-color: #2d9c84;
     color: rgb(0, 0, 0);
     padding: 15px 20px;
     font-size: 20px;
@@ -60,7 +60,7 @@ body {
     &:hover {
       transform: scale(1.3);
 
-      box-shadow: 0 0 10px rgba(250, 227, 94, 0.5);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     }
   }
 

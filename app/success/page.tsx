@@ -16,7 +16,7 @@ export default async function SuccessPage() {
       <div className="success-page">
         <h1>Your journey starts NOW</h1>
         <Link href={`/profile/${user.username}`}>
-          <button className="profile-button">Back to My Profile</button>
+          <button className="profile-button">Back to Profile</button>
         </Link>
       </div>
     </div>

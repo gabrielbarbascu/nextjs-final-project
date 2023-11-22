@@ -24,7 +24,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 150px;
   color: #fff;
   font-weight: 300;
   text-align: center; /* Center-align text for better readability */
@@ -39,7 +39,7 @@ body {
   position: absolute;
   bottom: 0;
   left: 0;
-
+  margin-top: 10px;
   width: 300px; /* Adjust the width as needed */
   height: 400px; /* Adjust the height as needed */
   overflow: hidden;
@@ -50,7 +50,7 @@ body {
   position: absolute;
   top: 75px;
   right: 0;
-
+  margin-bottom: 10px;
   width: 330px; /* Adjust the width as needed */
   height: 400px; /* Adjust the height as needed */
   overflow: hidden;
@@ -61,12 +61,14 @@ body {
 .about-content h1 {
   font-size: 30px;
   margin-bottom: 50px;
-  margin-right: 50px;
-  color: #fae35e;
+  margin-top: 0;
+  margin-right: 70px;
+  color: #ffeb7d;
   font-style: oblique;
 }
 
 .about-content p {
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   line-height: 1.5;
   text-align: left;
@@ -96,21 +98,18 @@ a {
   position: fixed;
   bottom: 0;
   right: 10px; /* Adjust the right property to move it left or right */
-  background-color: #549e54;
+  background-color: #4acbae;
   padding: 0.1px; /* Adjust the padding as needed */
   padding-left: 10px;
-
+  margin-bottom: 10px;
+  margin-right: 5px;
   color: #000000;
   border-radius: 25px; /* Optional: Add rounded corners to the top-left */
   font-size: 15px; /* Adjust the font size as needed */
-  transition: background-color 0.3s ease;
+  transition: transform 0.6s ease;
 }
 .contact-section:hover {
-  background-color: rgb(
-    125,
-    158,
-    84
-  ); /* Change the background color on hover */
+  transform: scale(1.1);
 }
 
 .contact-section p {

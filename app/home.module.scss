@@ -45,20 +45,21 @@
   .joinNowBtn {
     margin-right: 10px;
     margin-left: 120px;
-    background-color: rgb(31, 167, 51); /* Green button background color */
+    background-color: #4acbae; /* Green button background color */
     color: black; /* Black text color */
     border: none; /* Remove button border */
     padding: 25px; /* Adjust padding */
     cursor: pointer; /* Add pointer cursor on hover */
     border-radius: 10px; /* Adjust the border-radius for rounded corners */
     font-size: 25px;
-    transition: transform 0.3s ease; /* Add a smooth transition effect */
+    transition: transform 0.5s ease; /* Add a smooth transition effect */
     margin-top: 30px;
+    font-weight: 500;
   }
 
   .joinNowBtn:hover {
     transform: scale(1.3); /* Scale up the button on hover */
-    box-shadow: 0 0 10px rgba(255, 73, 73, 0.3); /* Add a subtle shadow on hover */
+    box-shadow: 0 0 10px rgb(0, 0, 0); /* Add a subtle shadow on hover */
   }
 
   .getInTouchBtn {

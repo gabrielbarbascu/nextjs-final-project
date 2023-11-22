@@ -10,7 +10,7 @@ body {
 }
 
 .page-header {
-  color: #fae35e; /* Yellow gold color for the header */
+  color: #ffeb7d; /* Yellow gold color for the header */
   text-align: center;
   padding: 20px;
 }
@@ -27,8 +27,8 @@ body {
 .service-item {
   text-align: center;
   padding: 16px;
-  border: 1px solid #1f8946;
-  background-color: #1e4b2f;
+
+  background-color: #2d9c84;
   border-radius: 10px;
   margin-top: 50px;
   margin-bottom: 10px;
@@ -45,20 +45,20 @@ body {
   }
 
   .service-name {
-    color: whitesmoke; /* Yellow color for service name */
+    color: rgb(255, 255, 255); /* Yellow color for service name */
     font-style: italic;
   }
 
   .service-description {
     font-size: 1.5em; /* Adjust font size for service description */
-    color: whitesmoke;
+    color: rgb(255, 255, 255);
     font-weight: 250;
   }
 }
 
 .buy-button {
   background-color: rgb(0, 0, 0); /* Green button background color */
-  color: rgb(202, 238, 92); /* Black text color */
+  color: #ffeb7d; /* Black text color */
   border: none; /* Remove button border */
   padding: 15px; /* Adjust padding */
   cursor: pointer; /* Add pointer cursor on hover */

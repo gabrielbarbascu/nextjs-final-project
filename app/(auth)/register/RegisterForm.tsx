@@ -17,7 +17,7 @@ export default function RegisterForm() {
   const [firstName, setFirstName] = useState<string>('');
   const [lastName, setLastName] = useState<string>('');
   const [dateOfBirth, setDateOfBirth] = useState<string>('');
-  const [gender, setGender] = useState<Gender>('');
+  const [gender, setGender] = useState<Gender>('male');
   const [phoneNumber, setPhoneNumber] = useState<string>('');
 
   const router = useRouter();

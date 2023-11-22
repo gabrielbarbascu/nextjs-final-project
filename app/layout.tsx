@@ -42,13 +42,12 @@ export default async function RootLayout(props: Props) {
                 />
               </div>
             </Link>
-            <span className="user-name">ALEX POPA</span>
+            <Link href={'/'}>
+              <span className="user-name">ALEX POPA</span>
+            </Link>
           </div>
 
           <div className="right-side">
-            <Link href="/" className="text-white">
-              HOME
-            </Link>
             <Link href="/services" className="text-white">
               SERVICES
             </Link>
