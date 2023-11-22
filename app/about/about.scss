@@ -14,13 +14,13 @@ body {
 .about-container {
   display: flex;
   flex-direction: column;
-
   background-color: #2a2b2a;
   padding: 20px;
   min-height: 100vh;
 
   h1 {
-    font-family: FreeMono, monospace;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
     width: 70vw;
     display: flex;
     justify-content: start;
@@ -33,7 +33,7 @@ body {
   flex-direction: row;
   margin-bottom: 150px;
   color: #fff;
-  font-weight: 300;
+  font-weight: 250;
   text-align: center; /* Center-align text for better readability */
 }
 
@@ -43,7 +43,8 @@ body {
 
   p {
     max-width: 60vw;
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 40;
     font-size: 17px;
     line-height: 1.5;
     text-align: left;
@@ -73,7 +74,7 @@ a {
   width: 50px; /* Adjust the width as needed */
   height: 50px; /* Adjust the height as needed */
   border-radius: 10%; /* Make the images circular */
-  transition: transform 0.3s ease; /* Add a smooth transition effect */
+  transition: transform 0.5s ease; /* Add a smooth transition effect */
   box-shadow: rgba(255, 119, 119, 0.3);
 }
 
@@ -95,10 +96,7 @@ a {
   color: #000000;
   border-radius: 25px; /* Optional: Add rounded corners to the top-left */
   font-size: 15px; /* Adjust the font size as needed */
-  transition: transform 0.6s ease;
-}
-.contact-section:hover {
-  transform: scale(1.1);
+  border: 3px solid #000000;
 }
 
 .contact-section p {

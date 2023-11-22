@@ -25,6 +25,7 @@ body {
   padding: 10px; /* Add padding for better styling */
   color: rgb(255, 255, 255);
   background-color: black;
+  border: 1px solid #4acbae;
 }
 
 .profile-content {
@@ -36,16 +37,17 @@ body {
 .profile-section {
   flex: 1;
   padding: 20px;
-  border: 1px; /* Add a border for better separation */
   margin-right: 1000px;
   text-align: left;
   background-color: black;
   border-radius: 20px;
+  border: 1px solid #4acbae;
 }
 
 .section-title {
   font-size: 22px;
   margin-bottom: 10px;
+  border-color: #4acbae;
 }
 
 .active-service {
@@ -68,7 +70,7 @@ button {
 }
 button:hover {
   transform: scale(1.2);
-  box-shadow: 0 0 10px rgba(255, 73, 73, 0.3); /* Add a subtle shadow on hover */
+  box-shadow: 0 0 10px rgba(103, 255, 237, 0.3); /* Add a subtle shadow on hover */
 }
 
 /* Align "Personal Data" and "Contact Information" to the left */
@@ -87,7 +89,7 @@ button:hover {
   margin-right: 150px; /* Adjust margin as needed */
   &:hover {
     transform: scale(1.2);
-    box-shadow: 0 0 10px rgba(255, 73, 73, 0.3); /* Add a subtle shadow on hover */
+    box-shadow: 0 0 10px rgba(103, 255, 237, 0.3);
   }
 
   a {

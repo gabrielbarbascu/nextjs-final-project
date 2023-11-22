@@ -18,6 +18,7 @@ body {
   border-radius: 25px; /* Adjust the border radius */
   max-width: 155px; /* Set a maximum width */
   width: 100%; /* Make it fill its container */
+  border: 1px solid #4acbae;
 }
 
 /* User Container styling */
@@ -37,10 +38,9 @@ body {
   background-color: #000000;
   color: #ffffff;
   padding: 8px;
-
   width: 17%;
   box-sizing: border-box;
-  border: 1px solid #ced4da;
+  border: 1px solid #4acbae;
   border-radius: 5px;
   margin-bottom: 10px;
   transition: transform 0.5s ease; /* Add a smooth transition effect */
@@ -101,7 +101,7 @@ body {
 /* Upload Form styling */
 .upload-form {
   padding: 10px;
-  border: 1px solid #ced4da;
+  border: 1px solid #4acbae;
   border-radius: 25px;
   width: 200px;
 }
