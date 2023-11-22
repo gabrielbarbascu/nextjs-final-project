@@ -16,18 +16,13 @@ export default function AboutPage() {
   return (
     <div className="about">
       <div className="about-container">
+        <h1>
+          Hello! I'm Alex and I'm a dedicated fitness trainer. I'm proud to
+          present you a unique trainer profile with a combination of theoretical
+          knowledge and practical experience in the field of sports.
+        </h1>
         <div className="about-section">
-          <div className="about-image1">
-            <Image src={Pna1} alt="Pna1" height={400} width={300} />
-          </div>
-
           <div className="about-content">
-            <h1>
-              Hello! I'm Alex and I'm a dedicated fitness trainer. I'm proud to
-              present you a unique trainer profile with a combination of
-              theoretical knowledge and practical experience in the field of
-              sports.
-            </h1>
             <p>
               I completed my studies as head of promotion at the faculty of
               physical education and sport, gaining a solid foundation of

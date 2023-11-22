@@ -15,14 +15,23 @@ nav {
   .left-side {
     display: flex;
     align-items: center;
-
-    .user-name {
-      color: #020202;
-      margin-left: 10px;
-      font-weight: bold;
-      font-style: italic;
-      font-size: 1.7em;
+    margin-left: 30px;
+    transition: transform 0.8s ease; /* Add transform transition */
+    text-decoration: none;
+    color: black;
+    &:hover {
+      color: #000000;
+      transform: scale(1.2); /* Scale up the item on hover */
     }
+  }
+
+  .user-name {
+    color: #020202;
+    margin-left: 15px;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 1.7em;
+    text-decoration: none;
   }
 
   .right-side {

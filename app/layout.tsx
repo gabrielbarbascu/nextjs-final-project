@@ -42,8 +42,8 @@ export default async function RootLayout(props: Props) {
                 />
               </div>
             </Link>
-            <Link href={'/'}>
-              <span className="user-name">ALEX POPA</span>
+            <Link href={'/'} className="user-name">
+              ALEX POPA
             </Link>
           </div>
 

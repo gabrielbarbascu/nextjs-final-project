@@ -14,16 +14,23 @@ body {
 .about-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+
   background-color: #2a2b2a;
   padding: 20px;
   min-height: 100vh;
+
+  h1 {
+    font-family: FreeMono, monospace;
+    width: 70vw;
+    display: flex;
+    justify-content: start;
+    color: white;
+  }
 }
 
 .about-section {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: row;
   margin-bottom: 150px;
   color: #fff;
   font-weight: 300;
@@ -31,26 +38,24 @@ body {
 }
 
 .about-content {
-  max-width: 800px; /* Increase the max-width for better readability */
+  max-width: 70vw; /* Increase the max-width for better readability */
   margin: 20px 2px; /* Add margin for better spacing */
-}
 
-.about-image1 {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  margin-top: 10px;
-  width: 300px; /* Adjust the width as needed */
-  height: 400px; /* Adjust the height as needed */
-  overflow: hidden;
-  border-radius: 10px;
+  p {
+    max-width: 60vw;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 17px;
+    line-height: 1.5;
+    text-align: left;
+    margin-bottom: 50px;
+  }
 }
 
 .about-image2 {
   position: absolute;
   top: 75px;
   right: 0;
-  margin-bottom: 10px;
+  margin: 30px 40px;
   width: 330px; /* Adjust the width as needed */
   height: 400px; /* Adjust the height as needed */
   overflow: hidden;
@@ -58,22 +63,6 @@ body {
 }
 
 /* Add some additional styles for better readability */
-.about-content h1 {
-  font-size: 30px;
-  margin-bottom: 50px;
-  margin-top: 0;
-  margin-right: 70px;
-  color: #ffeb7d;
-  font-style: oblique;
-}
-
-.about-content p {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  text-align: left;
-  margin-bottom: 50px;
-}
 
 a {
   text-decoration: none; /* Remove underline from links */
@@ -101,8 +90,8 @@ a {
   background-color: #4acbae;
   padding: 0.1px; /* Adjust the padding as needed */
   padding-left: 10px;
-  margin-bottom: 10px;
-  margin-right: 5px;
+  margin-bottom: 15px;
+  margin-right: 35px;
   color: #000000;
   border-radius: 25px; /* Optional: Add rounded corners to the top-left */
   font-size: 15px; /* Adjust the font size as needed */

@@ -9,7 +9,7 @@ body {
 /* Admin Form styling */
 .admin-form {
   font-size: 1em; /* Adjust the font size */
-  font-style: bold;
+  font-weight: bold;
   color: white;
   padding: 20px;
   background-color: #000000;
@@ -23,8 +23,8 @@ body {
 /* User Container styling */
 .user-container {
   padding: 10px;
-  border: 1px solid #ced4da;
-  border-radius: 5px;
+  border: 1px solid;
+  border-radius: 10px;
   background-color: black;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
@@ -37,7 +37,8 @@ body {
   background-color: #000000;
   color: #ffffff;
   padding: 8px;
-  width: 10%;
+
+  width: 17%;
   box-sizing: border-box;
   border: 1px solid #ced4da;
   border-radius: 5px;
@@ -57,10 +58,10 @@ body {
 }
 
 .user-button.save {
-  background-color: #28a745;
+  background-color: #00a072;
   color: #ffffff;
   margin-right: 5px;
-  margin-left: 10px;
+  margin-left: 15px;
   font-size: 15px;
   transition: transform 0.5s ease; /* Add a smooth transition effect */
   &:hover {
@@ -69,10 +70,10 @@ body {
 }
 
 .user-button.edit {
-  background-color: #005ab9;
+  background-color: #418d89;
   color: #ffffff;
   margin-right: 5px;
-  margin-left: 10px;
+  margin-left: 15px;
   font-size: 15px;
   transition: transform 0.5s ease; /* Add a smooth transition effect */
   &:hover {
@@ -81,10 +82,10 @@ body {
 }
 
 .user-button.delete {
-  background-color: #dc3545;
+  background-color: #c13470;
   color: #ffffff;
   margin-right: 5px;
-  margin-left: 5px;
+  margin-left: 15px;
   font-size: 15px;
   transition: transform 0.5s ease; /* Add a smooth transition effect */
   &:hover {
@@ -103,7 +104,6 @@ body {
   border: 1px solid #ced4da;
   border-radius: 25px;
   width: 200px;
-  margin-left: 800px;
 }
 
 /* File Input styling */
@@ -121,10 +121,10 @@ body {
 
 /* Upload Button styling */
 .upload-button {
-  background-color: #007bff;
+  background-color: #3f7875;
   color: #ffffff;
   margin-left: 20px;
-  font-size: 15px;
+  font-size: 16px;
   border-radius: 10px;
   transition: transform 0.5s ease; /* Add a smooth transition effect */
   &:hover {
