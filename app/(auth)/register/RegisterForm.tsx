@@ -1,6 +1,5 @@
 'use client';
 import './register.scss';
-// Import necessary modules and types
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { RegisterResponseBodyPost } from '../../api/(auth)/register/route';

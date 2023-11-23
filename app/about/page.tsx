@@ -4,7 +4,6 @@ import React from 'react';
 import Email from '../../public/email.png';
 import Facebook from '../../public/facebook.png';
 import Instagram from '../../public/instagram.png';
-import Pna1 from '../../public/pna1.jpg';
 import Pna2 from '../../public/pna2.jpg';
 
 export const metadata = {

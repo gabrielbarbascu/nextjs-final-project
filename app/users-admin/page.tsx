@@ -36,7 +36,7 @@ export default async function UsersPage() {
     // Redirect to home or show an unauthorized message
     redirect('/');
     // Or you can return a message or component indicating unauthorized access
-    // return <div>Unauthorized Access</div>;
+    //return <div>Unauthorized Access</div>;
   }
 
   // 6. If the sessionToken cookie is valid and the user is an admin, allow access to the admin page

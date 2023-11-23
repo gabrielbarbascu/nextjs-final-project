@@ -1,6 +1,5 @@
 'use client';
 import './admin.scss';
-import Head from 'next/head';
 import { useState } from 'react';
 import { User } from '../../migrations/00000-createTableUsers';
 
@@ -10,10 +9,8 @@ type Props = {
 
 export default function UsersForm({ users }: Props) {
   const [userList, setUserList] = useState(users);
-
   const [imageSrc, setImageSrc] = useState();
   const [uploadData, setUploadData] = useState();
-
   const [onEditId, setOnEditId] = useState(0);
   const [onEditFirstNameInput, setOnEditFirstNameInput] = useState('');
   const [onEditLastNameInput, setOnEditLastNameInput] = useState('');

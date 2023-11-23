@@ -29,7 +29,7 @@ export async function GET(
     );
   }
 
-  // query the database to get all the animals only if a valid session token is passed
+  // query the database to get all the users only if a valid session token is passed
   const users = await getUsersWithLimitAndOffset(limit, offset);
 
   return NextResponse.json({
