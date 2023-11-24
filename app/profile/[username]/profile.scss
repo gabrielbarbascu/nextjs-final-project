@@ -65,7 +65,7 @@ button {
   padding: 10px; /* Adjust padding */
   cursor: pointer; /* Add pointer cursor on hover */
   border-radius: 10px; /* Optional: Adds rounded corners */
-  transition: transform 0.3s ease;
+  transition: transform 0.5s ease;
   margin-right: 150px;
 }
 button:hover {
@@ -85,7 +85,7 @@ button:hover {
   padding: 10px; /* Adjust padding */
   cursor: pointer; /* Add pointer cursor on hover */
   border-radius: 10px; /* Optional: Adds rounded corners */
-  transition: transform 0.3s ease;
+  transition: transform 0.5s ease;
   margin-right: 150px; /* Adjust margin as needed */
   &:hover {
     transform: scale(1.2);
