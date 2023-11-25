@@ -17,10 +17,10 @@ body {
   background-color: #4acbae;
   margin-top: 40px;
   font-size: 2em;
-  transition: transform 0.3s ease; /* Add a smooth transition effect */
+  transition: transform 0.5s ease; /* Add a smooth transition effect */
   border-radius: 10px;
   &:hover {
-    transform: scale(1.3);
+    transform: scale(1.1);
 
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   }
