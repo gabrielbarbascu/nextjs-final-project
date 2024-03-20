@@ -2,12 +2,13 @@
   "name": "nextjs-final-project",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "dev": "next dev",
     "lint": "next lint",
-    "migrate": "ley --require tsm"
+    "migrate": "ley --require tsm",
+    "start": "next start"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
@@ -42,8 +43,9 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.4.16",
-    "eslint-config-upleveled": "^7.2.0",
+    "eslint-config-upleveled": "^7.8.2",
     "postcss": "^8.4.31",
+    "prettier": "^3.2.5",
     "prettier-plugin-embed": "^0.2.5",
     "prettier-plugin-sql": "^0.16.0",
     "stylelint": "^15.11.0",
