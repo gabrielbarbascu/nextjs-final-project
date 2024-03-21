@@ -31,6 +31,7 @@ User-Generated Content:
 Design and implement a PostgreSQL database to store user-generated content.
 Ensure a proper database schema for user profiles and admin functionalities.
 Additional Features
+
 Image Uploads:
 
 Integrate Cloudinary for image uploads.
