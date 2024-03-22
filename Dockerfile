@@ -35,3 +35,4 @@ COPY --from=builder /app/scripts ./scripts
 RUN chmod +x /app/scripts/fly-io-start.sh
 
 CMD ["./scripts/fly-io-start.sh"]
+#
