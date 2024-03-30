@@ -6,7 +6,9 @@
       {
         "name": "next"
       }
-    ]
+    ],
+    "module": "esnext",
+    "jsx": "preserve"
   },
   "include": [
     "**/*.ts",
