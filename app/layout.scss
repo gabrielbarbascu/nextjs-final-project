@@ -16,12 +16,12 @@ nav {
     display: flex;
     align-items: center;
     margin-left: 30px;
-    transition: transform 0.7s ease; /* Add transform transition */
+    transition: transform 0.4s ease; /* Add transform transition */
     text-decoration: none;
     color: black;
     &:hover {
       color: #000000;
-      transform: scale(1.2); /* Scale up the item on hover */
+      transform: scale(1.1); /* Scale up the item on hover */
     }
   }
 
@@ -53,7 +53,7 @@ nav {
 
       &:hover {
         color: #000000;
-        transform: scale(1.2); /* Scale up the item on hover */
+        transform: scale(1.1); /* Scale up the item on hover */
       }
     }
   }
